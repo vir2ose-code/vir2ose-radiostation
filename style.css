@@ -7,7 +7,7 @@
 
 body {
     /* 1. Visuelle Basis: Full-Screen Background */
-    background: #000 url("Online Radio fm Remastered.png") center/cover no-repeat;
+    background: #000 url("Online Radio fm V4.png") center/cover no-repeat;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -41,7 +41,6 @@ body {
 }
 
 /* Individuelle Positionen von Links nach Rechts (Werte anpassen!) */
-#btnPrev  { left: 16%; width: 9vmin; height: 9vmin; }
 #btnStop  { left: 26%; width: 9vmin; height: 9vmin; }
 #btnPause { left: 34%; width: 9vmin; height: 9vmin; }
 
@@ -57,7 +56,5 @@ body {
 .hotspot-main-coin:active {
     transform: translateY(-50%) scale(0.95);
 }
-
-#btnNext  { left: 58%; width: 9vmin; height: 9vmin; }
 
 /* Kinetische Effekte entfernt, um Skalierungsprobleme auf Smartphones/Tablets zu vermeiden. */

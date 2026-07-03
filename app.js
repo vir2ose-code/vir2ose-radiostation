@@ -23,12 +23,10 @@ let currentTrackIndex = 0;
 let audio = new Audio();
 let isPlaying = false;
 
-// Referenzen zu den 5 Hotspots
+// Referenzen zu den 3 Hotspots
 const playBtn = document.getElementById('playBtn');
 const btnStop = document.getElementById('btnStop');
 const btnPause = document.getElementById('btnPause');
-const btnPrev = document.getElementById('btnPrev');
-const btnNext = document.getElementById('btnNext');
 
 // Lade den Track und encodiere Leerzeichen für Server wie Vercel
 function loadTrack(index) {
@@ -94,8 +92,6 @@ audio.addEventListener('ended', () => {
 if (playBtn) playBtn.addEventListener('click', togglePlay);
 if (btnStop) btnStop.addEventListener('click', stopTrack);
 if (btnPause) btnPause.addEventListener('click', pauseTrack);
-if (btnPrev) btnPrev.addEventListener('click', prevTrack);
-if (btnNext) btnNext.addEventListener('click', nextTrack);
 
 // Service Worker Registration
 if ('serviceWorker' in navigator) {
