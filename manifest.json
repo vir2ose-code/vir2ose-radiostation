@@ -16,15 +16,27 @@
   ],
   "icons": [
     {
-        "src": "512x512 PING.jpg",
-        "sizes": "512x512",
-        "type": "image/jpeg",
+        "src": "icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png",
         "purpose": "any"
     },
     {
-        "src": "512x512 PING.jpg",
+        "src": "icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "maskable"
+    },
+    {
+        "src": "icon-512.png",
         "sizes": "512x512",
-        "type": "image/jpeg",
+        "type": "image/png",
+        "purpose": "any"
+    },
+    {
+        "src": "icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png",
         "purpose": "maskable"
     }
   ],
@@ -34,9 +46,9 @@
         "url": "/",
         "icons": [
             {
-                "src": "512x512 PING.jpg",
+                "src": "icon-512.png",
                 "sizes": "512x512",
-                "type": "image/jpeg"
+                "type": "image/png"
             }
         ]
     }
