@@ -28,10 +28,10 @@ body {
     height: 30vmin;
 }
 
-/* Unsichtbare Klickzonen (Temporär SICHTBAR gemacht zum Debuggen!) */
+/* Unsichtbare Klickzonen */
 .hotspot {
-    background: rgba(255, 0, 0, 0.4);
-    border: 2px solid red;
+    background: transparent;
+    border: none;
     outline: none;
     cursor: pointer;
     position: absolute;
@@ -41,8 +41,8 @@ body {
 }
 
 /* Individuelle Positionen von Links nach Rechts (Werte anpassen!) */
-#btnPrev  { left: 10%; width: 9vmin; height: 9vmin; }
-#btnStop  { left: 22%; width: 9vmin; height: 9vmin; }
+#btnPrev  { left: 16%; width: 9vmin; height: 9vmin; }
+#btnStop  { left: 26%; width: 9vmin; height: 9vmin; }
 #btnPause { left: 34%; width: 9vmin; height: 9vmin; }
 
 /* Die Haupt-Münze */
