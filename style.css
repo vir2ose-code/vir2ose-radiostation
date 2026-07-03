@@ -28,10 +28,10 @@ body {
     height: 30vmin;
 }
 
-/* Unsichtbare Klickzonen */
+/* Unsichtbare Klickzonen (Jetzt wieder SICHTBAR zum Justieren!) */
 .hotspot {
-    background: transparent;
-    border: none;
+    background: rgba(255, 0, 0, 0.5);
+    border: 2px solid red;
     outline: none;
     cursor: pointer;
     position: absolute;
