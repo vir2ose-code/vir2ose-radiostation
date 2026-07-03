@@ -20,7 +20,7 @@ body {
 /* 2. Steuerungsdeck für die interaktiven Hotspots */
 .control-deck {
     position: absolute;
-    left: 45.5%; /* Zwingt die gesamte Kette ein Stück nach links */
+    left: 51%; /* Feinkorrektur nach rechts */
     bottom: 16%;  /* Zwingt die gesamte Kette weiter nach unten */
     transform: translateX(-50%);
     display: flex;
@@ -29,10 +29,10 @@ body {
     gap: 3vmin; /* Kleinerer, präziserer Abstand zwischen den Elementen */
 }
 
-/* Unsichtbare Klickzonen (Jetzt wieder SICHTBAR zum Justieren!) */
+/* Unsichtbare Klickzonen */
 .hotspot {
-    background: rgba(255, 0, 0, 0.5);
-    border: 2px solid red;
+    background: transparent;
+    border: none;
     outline: none;
     cursor: pointer;
     border-radius: 50%;
