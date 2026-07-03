@@ -1,24 +1,45 @@
 {
   "name": "vir2ose-Radio",
   "short_name": "vir2oseRadio",
-  "start_url": ".",
-  "display": "standalone",
-  "background_color": "#0f1319",
-  "theme_color": "#1a222d",
   "description": "Dein Gateway für Independent Audio, Songwriting und exklusive Künstler-Talks.",
-  "orientation": "portrait",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "dir": "ltr",
+  "lang": "de",
+  "categories": [
+    "music",
+    "entertainment",
+    "radio"
+  ],
   "icons": [
     {
-      "src": "RADIO ONLINE BACK 1.png",
+      "src": "512x512 PING.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "512x512 PING.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    },
+    }
+  ],
+  "shortcuts": [
     {
-      "src": "vir2ose LOGO TRANS.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
+      "name": "Radio Starten",
+      "short_name": "Play",
+      "description": "Spiele den vir2ose Radio-Stream",
+      "url": "./index.html",
+      "icons": [
+        {
+          "src": "512x512 PING.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vir2ose-radio-v3';
+const CACHE_NAME = 'vir2ose-radio-v4';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -7,7 +7,8 @@ const ASSETS_TO_CACHE = [
   './manifest.json',
   './RADIO ONLINE BACK 1.png',
   './vir2ose LOGO TRANS.png',
-  './Online Radio fm V4.png'
+  './Online Radio fm V4.png',
+  './512x512 PING.png'
 ];
 
 // Install Event: App-Shell cachen
