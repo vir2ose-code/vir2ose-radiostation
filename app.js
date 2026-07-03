@@ -30,8 +30,15 @@ const btnPause = document.getElementById('btnPause');
 const btnPrev = document.getElementById('btnPrev');
 const btnNext = document.getElementById('btnNext');
 
-// Lade den ersten Track, sobald die App startet (ohne Autoplay)
-audio.src = playlist[currentTrackIndex];
+// Lade den Track und encodiere Leerzeichen für Server wie Vercel
+function loadTrack(index) {
+    const safeUrl = encodeURI(playlist[index]);
+    audio.src = safeUrl;
+    audio.load();
+}
+
+// Initial den ersten Track laden
+loadTrack(currentTrackIndex);
 
 function togglePlay() {
     if (!isPlaying) {
@@ -45,7 +52,7 @@ function playTrack() {
     audio.play().then(() => {
         isPlaying = true;
     }).catch(err => {
-        console.error("Wiedergabe fehlgeschlagen:", err);
+        console.error("Wiedergabe fehlgeschlagen. Grund:", err);
     });
 }
 
@@ -65,10 +72,8 @@ function nextTrack() {
     if (currentTrackIndex >= playlist.length) {
         currentTrackIndex = 0; // Gehe zurück zum ersten Track
     }
-    audio.src = playlist[currentTrackIndex];
-    if (isPlaying) {
-        playTrack();
-    }
+    loadTrack(currentTrackIndex);
+    playTrack(); // Bei Klick auf Vorwärts IMMER direkt abspielen!
 }
 
 function prevTrack() {
@@ -76,16 +81,13 @@ function prevTrack() {
     if (currentTrackIndex < 0) {
         currentTrackIndex = playlist.length - 1; // Gehe zum letzten Track
     }
-    audio.src = playlist[currentTrackIndex];
-    if (isPlaying) {
-        playTrack();
-    }
+    loadTrack(currentTrackIndex);
+    playTrack(); // Bei Klick auf Rückwärts IMMER direkt abspielen!
 }
 
 // Wenn ein Track zu Ende ist, automatisch den nächsten abspielen
 audio.addEventListener('ended', () => {
     nextTrack();
-    playTrack();
 });
 
 // Event Listeners binden
