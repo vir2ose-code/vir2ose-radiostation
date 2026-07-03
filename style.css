@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Verhindert das blaue Highlight auf Mobilgeräten */
+}
+
+body {
+    /* 1. Visuelle Basis: Full-Screen Background */
+    background: #000 url("Online Radio fm V3.png") center/cover no-repeat;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    /* Verhindert Textmarkierungen und Dragging für echtes App-Feeling */
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* 2. Steuerungsdeck für die interaktiven Hotspots */
+.control-deck {
+    position: absolute;
+    /* Positioniere das Deck unten mittig, anpassbar je nach exakter Grafik! */
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vmin;
+    height: 30vmin;
+    /* border: 1px solid rgba(255,0,0,0.3); <- Zum Debuggen der Position einkommentieren */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3vmin;
+    z-index: 10;
+}
+
+/* Unsichtbare Klickzonen */
+.hotspot {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+    /* border: 1px solid rgba(0, 255, 102, 0.5); <- Zum Debuggen einkommentieren */
+}
+
+/* Standard-Größe für die kleinen Buttons (Prev, Stop, Pause, Next) */
+#btnPrev, #btnStop, #btnPause, #btnNext {
+    width: 10vmin;
+    height: 10vmin;
+}
+
+/* Die Haupt-Münze zentriert */
+.hotspot-main-coin {
+    width: 25vmin;
+    height: 25vmin;
+    border-radius: 50%;
+    /* Feinjustierung der Position (Bewegt den Button nach oben und rechts) */
+    bottom: 2vmin;
+    left: 2vmin;
+    will-change: transform, opacity, box-shadow, filter;
+    transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+.hotspot-main-coin:active {
+    transform: scale(0.95);
+}
+
+/* Kinetische Effekte entfernt, um Skalierungsprobleme auf Smartphones/Tablets zu vermeiden. */

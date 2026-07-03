@@ -1,0 +1,24 @@
+{
+  "name": "vir2ose-Radio",
+  "short_name": "vir2oseRadio",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0f1319",
+  "theme_color": "#1a222d",
+  "description": "Dein Gateway für Independent Audio, Songwriting und exklusive Künstler-Talks.",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "RADIO ONLINE BACK 1.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "vir2ose LOGO TRANS.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
