@@ -56,3 +56,43 @@ body {
 }
 
 /* Kinetische Effekte entfernt, um Skalierungsprobleme auf Smartphones/Tablets zu vermeiden. */
+
+@media (max-width: 768px) {
+    body {
+        /* Verhindert das Abschneiden der Ränder auf Hochkant-Displays */
+        background-size: contain !important;
+        background-position: center center !important;
+        background-color: #000000; /* Schwarze Letterbox-Balken oben/unten für den echten Kino-/Konsolen-Look */
+    }
+
+    /* Da die Grafik jetzt per 'contain' mitskaliert, müssen wir sicherstellen, 
+       dass der umschließende Container für unsere Hotspots exakt die gleichen 
+       Proportionen wie das Hintergrundbild annimmt! */
+    .player-container {
+        position: absolute;
+        width: 100vw;
+        height: calc(100vw * (9 / 16)); /* Erzwingt das exakte 16:9 Verhältnis der Grafik auf dem Screen */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Setze das Control-Deck JETZT relativ in diesen perfekt skalierten Container, 
+       damit die Hotspots auf JEDEM Smartphone millimetergenau über den Symbolen einfrieren! */
+    .control-deck {
+        position: absolute;
+        left: 48%;  /* Deine ermittelte Links-Rechts-Feinjustierung */
+        bottom: 5%;   /* Passe diesen Wert kurz an, bis es perfekt auf den Symbolen sitzt */
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3vmin;
+    }
+
+    #btnStop, #btnPause, #playBtn {
+        width: 11vmin;
+        height: 11vmin;
+        border-radius: 50%;
+    }
+}
