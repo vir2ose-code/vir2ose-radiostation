@@ -34,15 +34,14 @@ body {
     z-index: 10;
 }
 
-/* Unsichtbare Klickzonen */
+/* Unsichtbare Klickzonen (Temporär SICHTBAR gemacht zum Debuggen!) */
 .hotspot {
-    background: transparent;
-    border: none;
+    background: rgba(255, 0, 0, 0.4);
+    border: 2px solid red;
     outline: none;
     cursor: pointer;
     position: relative;
     border-radius: 50%;
-    /* border: 1px solid rgba(0, 255, 102, 0.5); <- Zum Debuggen einkommentieren */
 }
 
 /* Standard-Größe für die kleinen Buttons (Prev, Stop, Pause, Next) */
