@@ -20,7 +20,7 @@ body {
 /* 2. Steuerungsdeck für die interaktiven Hotspots */
 .control-deck {
     position: absolute;
-    left: 51%; /* Feinkorrektur nach rechts */
+    left: 48%; /* Feinkorrektur zwischen 45.5% und 51% */
     bottom: 16%;  /* Zwingt die gesamte Kette weiter nach unten */
     transform: translateX(-50%);
     display: flex;
