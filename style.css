@@ -21,7 +21,7 @@ body {
 .control-deck {
     position: absolute;
     /* Bewegt das gesamte Deck hoch oder runter */
-    bottom: 15%;
+    bottom: 6%;
     left: 50%;
     transform: translateX(-50%);
     width: 65vmin; /* Breite des gesamten Steuerbereichs */
@@ -41,14 +41,14 @@ body {
 }
 
 /* Individuelle Positionen von Links nach Rechts (Werte anpassen!) */
-#btnStop  { left: 10%; width: 10vmin; height: 10vmin; }
-#btnPause { left: 40%; width: 10vmin; height: 10vmin; }
+#btnStop  { left: 28%; width: 10vmin; height: 10vmin; }
+#btnPause { left: 44%; width: 10vmin; height: 10vmin; }
 
 /* Die Haupt-Münze */
 .hotspot-main-coin {
-    left: 75%; /* Bewegt die Münze nach links/rechts */
-    width: 22vmin;
-    height: 22vmin;
+    left: 60%; /* Bewegt die Münze nach links/rechts */
+    width: 23vmin;
+    height: 23vmin;
     will-change: transform, opacity, box-shadow, filter;
     transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.3, 1);
 }
