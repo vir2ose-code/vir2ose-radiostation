@@ -20,18 +20,12 @@ body {
 /* 2. Steuerungsdeck für die interaktiven Hotspots */
 .control-deck {
     position: absolute;
-    /* Positioniere das Deck unten mittig, anpassbar je nach exakter Grafik! */
-    bottom: 5%;
+    /* Bewegt das gesamte Deck hoch oder runter */
+    bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
-    width: 90vmin;
+    width: 65vmin; /* Breite des gesamten Steuerbereichs */
     height: 30vmin;
-    /* border: 1px solid rgba(255,0,0,0.3); <- Zum Debuggen der Position einkommentieren */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3vmin;
-    z-index: 10;
 }
 
 /* Unsichtbare Klickzonen (Temporär SICHTBAR gemacht zum Debuggen!) */
@@ -40,30 +34,30 @@ body {
     border: 2px solid red;
     outline: none;
     cursor: pointer;
-    position: relative;
+    position: absolute;
     border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-/* Standard-Größe für die kleinen Buttons (Prev, Stop, Pause, Next) */
-#btnPrev, #btnStop, #btnPause, #btnNext {
-    width: 10vmin;
-    height: 10vmin;
-}
+/* Individuelle Positionen von Links nach Rechts (Werte anpassen!) */
+#btnPrev  { left: 0%; width: 9vmin; height: 9vmin; }
+#btnStop  { left: 16%; width: 9vmin; height: 9vmin; }
+#btnPause { left: 32%; width: 9vmin; height: 9vmin; }
 
-/* Die Haupt-Münze zentriert */
+/* Die Haupt-Münze */
 .hotspot-main-coin {
+    left: 48%; /* Bewegt die Münze nach links/rechts */
     width: 25vmin;
     height: 25vmin;
-    border-radius: 50%;
-    /* Feinjustierung der Position (Bewegt den Button nach oben und rechts) */
-    bottom: 2vmin;
-    left: 2vmin;
     will-change: transform, opacity, box-shadow, filter;
     transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.3, 1);
 }
 
 .hotspot-main-coin:active {
-    transform: scale(0.95);
+    transform: translateY(-50%) scale(0.95);
 }
+
+#btnNext  { left: 88%; width: 9vmin; height: 9vmin; }
 
 /* Kinetische Effekte entfernt, um Skalierungsprobleme auf Smartphones/Tablets zu vermeiden. */
