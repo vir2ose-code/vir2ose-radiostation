@@ -41,15 +41,15 @@ body {
 }
 
 /* Individuelle Positionen von Links nach Rechts (Werte anpassen!) */
-#btnPrev  { left: 0%; width: 9vmin; height: 9vmin; }
-#btnStop  { left: 16%; width: 9vmin; height: 9vmin; }
-#btnPause { left: 32%; width: 9vmin; height: 9vmin; }
+#btnPrev  { left: 10%; width: 9vmin; height: 9vmin; }
+#btnStop  { left: 22%; width: 9vmin; height: 9vmin; }
+#btnPause { left: 34%; width: 9vmin; height: 9vmin; }
 
 /* Die Haupt-Münze */
 .hotspot-main-coin {
-    left: 48%; /* Bewegt die Münze nach links/rechts */
-    width: 25vmin;
-    height: 25vmin;
+    left: 42%; /* Bewegt die Münze nach links/rechts */
+    width: 14vmin;
+    height: 14vmin;
     will-change: transform, opacity, box-shadow, filter;
     transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.3, 1);
 }
@@ -58,6 +58,6 @@ body {
     transform: translateY(-50%) scale(0.95);
 }
 
-#btnNext  { left: 88%; width: 9vmin; height: 9vmin; }
+#btnNext  { left: 58%; width: 9vmin; height: 9vmin; }
 
 /* Kinetische Effekte entfernt, um Skalierungsprobleme auf Smartphones/Tablets zu vermeiden. */
