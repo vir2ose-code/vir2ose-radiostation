@@ -64,10 +64,10 @@ body {
     left: 50%;
     transform: translateX(-50%);
     color: rgba(255, 255, 255, 0.45); /* Leicht präsenter, aber noch subtil */
-    font-family: 'Courier New', Courier, monospace; /* Technischer Terminal-Look */
+    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean & Modern wie der Slogan */
     font-size: 2.2rem; /* 3-fach größer */
-    font-weight: bold; /* Fetter */
-    letter-spacing: 0.1em;
+    font-weight: 300; /* Schmäler (Light) */
+    letter-spacing: 0.05em; /* Etwas enger für Sans-Serif */
     text-align: center;
     pointer-events: none; /* Blockiert keine Klicks */
     z-index: 10;
