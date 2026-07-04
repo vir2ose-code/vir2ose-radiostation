@@ -77,45 +77,44 @@ body {
 
 @media (max-width: 768px) {
     body {
-        /* Verhindert das Abschneiden der Ränder auf Hochkant-Displays */
-        background-size: contain !important;
+        /* Lade die neue Portrait-Grafik und zwinge sie in den Fullscreen */
+        background-image: url("Online Radio VERTiIKAL SMARTPHONE.png") !important;
+        background-size: cover !important;
         background-position: center center !important;
-        background-color: #000000; /* Schwarze Letterbox-Balken oben/unten für den echten Kino-/Konsolen-Look */
+        background-color: #000000;
     }
 
-    /* Da die Grafik jetzt per 'contain' mitskaliert, müssen wir sicherstellen, 
-       dass der umschließende Container für unsere Hotspots exakt die gleichen 
-       Proportionen wie das Hintergrundbild annimmt! */
+    /* Der Container füllt nun auf Smartphones den gesamten Screen ohne Letterbox-Ränder */
     .player-container {
         position: absolute;
         width: 100vw;
-        height: calc(100vw * (9 / 16)); /* Erzwingt das exakte 16:9 Verhältnis der Grafik auf dem Screen */
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        height: 100vh;
+        top: 0;
+        left: 0;
+        transform: none;
     }
 
-    /* Setze das Control-Deck JETZT relativ in diesen perfekt skalierten Container, 
-       damit die Hotspots auf JEDEM Smartphone millimetergenau über den Symbolen einfrieren! */
+    /* Das Control-Deck wird im unteren Drittel positioniert */
     .control-deck {
         position: absolute;
-        left: 48%;  /* Deine ermittelte Links-Rechts-Feinjustierung */
-        bottom: 5%;   /* Passe diesen Wert kurz an, bis es perfekt auf den Symbolen sitzt */
+        left: 50%;
+        bottom: 20%;  /* Passt die Buttons exakt unter das zentrierte VIR2OSE-Logo an */
         transform: translateX(-50%);
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 3vmin;
+        gap: 5vmin; /* Etwas mehr Abstand für dicke Finger auf dem Handy */
     }
 
+    /* Buttons größer machen, da vmin auf dem Smartphone = Breite ist und 11vmin winzig wäre */
     #btnStop, #btnPause, #playBtn {
-        width: 11vmin;
-        height: 11vmin;
+        width: 18vmin; 
+        height: 18vmin;
         border-radius: 50%;
     }
 
     .clock-widget {
-        bottom: 10%; /* Auf dem Smartphone höher, um nicht im schwarzen Bereich unterzugehen */
-        font-size: 1.4rem; /* Gut lesbar, aber nicht überdimensioniert */
+        bottom: 8%; /* Positionierung der Uhr unterhalb der Buttons */
+        font-size: 1.4rem;
     }
 }
