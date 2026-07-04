@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vir2ose-radio-v11';
+const CACHE_NAME = 'vir2ose-radio-v12';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -8,6 +8,7 @@ const ASSETS_TO_CACHE = [
   './RADIO ONLINE BACK 1.png',
   './vir2ose LOGO TRANS.png',
   './Online Radio fm V4.png',
+  './Online Radio VERTiIKAL SMARTPHONE.png',
   './icon-192.png',
   './icon-512.png'
 ];
