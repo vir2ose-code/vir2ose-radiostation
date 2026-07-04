@@ -21,7 +21,14 @@ const playlist = [
 
 let currentTrackIndex = 0;
 let audio = new Audio();
+audio.crossOrigin = "anonymous"; // Wichtig, damit der AudioContext das Signal abfangen darf ohne CORS-Probleme
 let isPlaying = false;
+
+// --- Web Audio API (Mastering Limiter) Variablen ---
+let audioContext;
+let trackSource;
+let compressor;
+let outGain;
 
 // Referenzen zu den 3 Hotspots
 const playBtn = document.getElementById('playBtn');
@@ -38,6 +45,34 @@ function loadTrack(index) {
 // Initial den ersten Track laden
 loadTrack(currentTrackIndex);
 
+// Initialisiert den AudioContext und den Mastering-Limiter
+function initAudioContext() {
+    if (!audioContext) {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // 1. Audio-Element als Quelle einbinden
+        trackSource = audioContext.createMediaElementSource(audio);
+        
+        // 2. Limiter / Compressor Node erstellen
+        compressor = audioContext.createDynamicsCompressor();
+        compressor.threshold.value = -24; // Signal kompakt halten und anheben
+        compressor.knee.value = 30;
+        compressor.ratio.value = 20;      // Ratio auf Maximum für Brickwall-Limiter-Verhalten
+        compressor.attack.value = 0.003;  // 3ms Attack
+        compressor.release.value = 0.25;  // 250ms Release
+        
+        // 3. GainNode als Ceiling-Schutz bei -1 dB True Peak
+        outGain = audioContext.createGain();
+        // -1 dB entspricht linear ca. 0.89125 ( 10^(-1/20) )
+        outGain.gain.value = 0.89125; 
+        
+        // Routing: audio -> compressor -> outGain -> speakers
+        trackSource.connect(compressor);
+        compressor.connect(outGain);
+        outGain.connect(audioContext.destination);
+    }
+}
+
 function togglePlay() {
     if (!isPlaying) {
         playTrack();
@@ -47,6 +82,14 @@ function togglePlay() {
 }
 
 function playTrack() {
+    // Sicherstellen, dass der AudioContext aufgebaut ist
+    initAudioContext();
+    
+    // Zwingend für Smartphones: AudioContext muss durch User-Interaktion (Play-Klick) asynchron "resumed" werden
+    if (audioContext && audioContext.state === 'suspended') {
+        audioContext.resume().catch(err => console.error("AudioContext Resume Fehler:", err));
+    }
+    
     audio.play().then(() => {
         isPlaying = true;
     }).catch(err => {
@@ -57,6 +100,7 @@ function playTrack() {
 function pauseTrack() {
     audio.pause();
     isPlaying = false;
+    // Optional: audioContext.suspend() könnte man hier aufrufen, aber audio.pause() unterbricht die Quelle zuverlässig.
 }
 
 function stopTrack() {
@@ -71,7 +115,7 @@ function nextTrack() {
         currentTrackIndex = 0; // Gehe zurück zum ersten Track
     }
     loadTrack(currentTrackIndex);
-    playTrack(); // Bei Klick auf Vorwärts IMMER direkt abspielen!
+    playTrack(); 
 }
 
 function prevTrack() {
@@ -80,7 +124,7 @@ function prevTrack() {
         currentTrackIndex = playlist.length - 1; // Gehe zum letzten Track
     }
     loadTrack(currentTrackIndex);
-    playTrack(); // Bei Klick auf Rückwärts IMMER direkt abspielen!
+    playTrack();
 }
 
 // Wenn ein Track zu Ende ist, automatisch den nächsten abspielen
