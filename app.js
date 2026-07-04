@@ -153,6 +153,9 @@ function updateClock() {
     if (!clockWidget) return;
     const now = new Date();
     
+    // Wochentag auslesen (z.B. "Samstag")
+    const weekday = now.toLocaleDateString('de-DE', { weekday: 'long' });
+    
     const day = String(now.getDate()).padStart(2, '0');
     const month = String(now.getMonth() + 1).padStart(2, '0');
     const year = now.getFullYear();
@@ -161,7 +164,7 @@ function updateClock() {
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
     
-    clockWidget.innerText = `${day}.${month}.${year}  //  ${hours}:${minutes}:${seconds}`;
+    clockWidget.innerText = `${weekday}, ${day}.${month}.${year}  //  ${hours}:${minutes}:${seconds}`;
 }
 
 // Jede Sekunde aktualisieren
