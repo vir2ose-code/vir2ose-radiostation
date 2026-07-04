@@ -145,3 +145,25 @@ if ('serviceWorker' in navigator) {
             .catch(err => console.error('Service Worker Registrierung fehlgeschlagen: ', err));
     });
 }
+
+// --- Uhrzeit und Datum ---
+const clockWidget = document.getElementById('clock-widget');
+
+function updateClock() {
+    if (!clockWidget) return;
+    const now = new Date();
+    
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+    
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    
+    clockWidget.innerText = `${day}.${month}.${year}  //  ${hours}:${minutes}:${seconds}`;
+}
+
+// Jede Sekunde aktualisieren
+setInterval(updateClock, 1000);
+updateClock(); // Sofortiger Aufruf beim Start

@@ -57,6 +57,22 @@ body {
 
 /* Kinetische Effekte entfernt, um Skalierungsprobleme auf Smartphones/Tablets zu vermeiden. */
 
+/* 3. Subtiles Uhrzeit- und Datum-Widget */
+.clock-widget {
+    position: absolute;
+    bottom: 2%; /* Standardmäßig ganz unten im Viewport */
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.35); /* Sehr subtil, fast durchsichtig */
+    font-family: 'Courier New', Courier, monospace; /* Technischer Terminal-Look */
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-align: center;
+    pointer-events: none; /* Blockiert keine Klicks */
+    z-index: 10;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); /* Leichter Schatten für Lesbarkeit */
+}
+
 @media (max-width: 768px) {
     body {
         /* Verhindert das Abschneiden der Ränder auf Hochkant-Displays */
@@ -94,5 +110,10 @@ body {
         width: 11vmin;
         height: 11vmin;
         border-radius: 50%;
+    }
+
+    .clock-widget {
+        bottom: 3%; /* Minimal höher im schwarzen Balken */
+        font-size: 0.65rem;
     }
 }
