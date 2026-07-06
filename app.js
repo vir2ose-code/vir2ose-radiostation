@@ -8,16 +8,31 @@ const playlist = [
     "AUDIO-LIBRARY/I DON'T KNOW WHY by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/IN MY HEAD by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/INDIAN  MOON by vir2ose 2023.mp3",
+    "AUDIO-LIBRARY/Mein Leben Lang (Caleidio).mp3",
+    "AUDIO-LIBRARY/Mein Leben Lang_RadioRemix_ (Caleidio).mp3",
     "AUDIO-LIBRARY/NEW WORLD ORDER by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/PASSIONATELY - EOV by vir2ose 2025.mp3",
     "AUDIO-LIBRARY/PHANTOM OF THE EDM by vir2ose 2025.mp3",
     "AUDIO-LIBRARY/RHAPSODY OF MY LIFE by vir2ose 2023.mp3",
     "AUDIO-LIBRARY/SAND OF THE DESSERT by vir2ose 2024.mp3",
+    "AUDIO-LIBRARY/Sommerzeit (Reggae) - Caleidio.mp3",
     "AUDIO-LIBRARY/TERRA NATURI by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/TIME (Hans Zimmer) Remix ans Remaster by vir2ose 2025.mp3",
     "AUDIO-LIBRARY/VIOLIN PROJECT by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/WENN DU ... EOV ... by vir2ose 2023.mp3"
 ];
+
+// Funktion zum zufälligen Mischen der Playlist (Fisher-Yates Shuffle)
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Playlist bei jedem Seitenaufruf neu mischen
+shuffleArray(playlist);
+
 
 let currentTrackIndex = 0;
 let audio = new Audio();

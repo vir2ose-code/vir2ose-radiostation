@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vir2ose-radio-v12';
+const CACHE_NAME = 'vir2ose-radio-v13';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
