@@ -162,24 +162,26 @@ if ('serviceWorker' in navigator) {
 }
 
 // --- Uhrzeit und Datum ---
-const clockWidget = document.getElementById('clock-widget');
+// --- Uhrzeit und Datum ---
+const dateWidget = document.getElementById('date-widget');
+const timeWidget = document.getElementById('time-widget');
 
 function updateClock() {
-    if (!clockWidget) return;
     const now = new Date();
     
-    // Wochentag auslesen (z.B. "Samstag")
-    const weekday = now.toLocaleDateString('de-DE', { weekday: 'long' });
+    if (dateWidget) {
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const year = now.getFullYear();
+        dateWidget.innerText = `${day}.${month}.${year}`;
+    }
     
-    const day = String(now.getDate()).padStart(2, '0');
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const year = now.getFullYear();
-    
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    
-    clockWidget.innerText = `${weekday}, ${day}.${month}.${year} • ${hours}:${minutes}:${seconds}`;
+    if (timeWidget) {
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        timeWidget.innerText = `${hours}:${minutes}:${seconds}`;
+    }
 }
 
 // Jede Sekunde aktualisieren

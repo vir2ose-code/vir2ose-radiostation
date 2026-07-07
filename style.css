@@ -57,22 +57,30 @@ body {
 
 /* Kinetische Effekte entfernt, um Skalierungsprobleme auf Smartphones/Tablets zu vermeiden. */
 
-/* 3. Subtiles Uhrzeit- und Datum-Widget */
-.clock-widget {
+/* 3. Getrenntes Uhrzeit- und Datum-Widget (Links und Rechts der Buttons) */
+.date-widget, .time-widget {
     position: absolute;
-    bottom: 6%; /* Weiter nach oben verschoben */
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.45); /* Leicht präsenter, aber noch subtil */
-    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean & Modern wie der Slogan */
-    font-size: 2.2rem; /* 3-fach größer */
-    font-weight: 300; /* Schmäler (Light) */
-    letter-spacing: 0.05em; /* Etwas enger für Sans-Serif */
-    text-align: center;
-    pointer-events: none; /* Blockiert keine Klicks */
+    color: #ffffff; /* Weiß */
+    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 2.8rem; /* Größer */
+    font-weight: bold; /* Fetter */
+    letter-spacing: 0.05em;
+    pointer-events: none;
     z-index: 10;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9); /* Stärkerer Schatten für gute Lesbarkeit */
-    width: 100%;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    white-space: nowrap; /* Kein Umbruch */
+    top: 50%; /* Genau auf Höhe der Buttons (mittig-hoch) */
+    transform: translateY(-50%);
+}
+
+.date-widget {
+    right: 100%; /* Links vom Control-Deck */
+    margin-right: 4vmin; /* Abstand zum Stop-Button */
+}
+
+.time-widget {
+    left: 100%; /* Rechts vom Control-Deck */
+    margin-left: 4vmin; /* Abstand zum Play-Button */
 }
 
 @media (max-width: 768px) {
@@ -113,8 +121,27 @@ body {
         border-radius: 50%;
     }
 
-    .clock-widget {
-        bottom: 8%; /* Positionierung der Uhr unterhalb der Buttons */
+    .date-widget, .time-widget {
         font-size: 1.4rem;
+    }
+    
+    .date-widget {
+        /* Auf dem Handy unter die Buttons schieben (linksbündig zum Control-Deck) */
+        right: auto;
+        margin-right: 0;
+        left: 0;
+        top: auto;
+        bottom: -60%;
+        transform: none;
+    }
+    
+    .time-widget {
+        /* Auf dem Handy unter die Buttons schieben (rechtsbündig zum Control-Deck) */
+        left: auto;
+        margin-left: 0;
+        right: 0;
+        top: auto;
+        bottom: -60%;
+        transform: none;
     }
 }
