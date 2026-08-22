@@ -149,57 +149,62 @@ body {
 /* --- Top Menu: Artist & Genres --- */
 .top-menu {
     position: absolute;
-    top: 15%; 
-    left: 50%;
-    transform: translateX(-50%);
+    top: 12%; 
+    left: 20%; /* Auf Desktop nach links gerückt */
+    transform: none; /* Zentrierung aufheben */
     display: flex;
-    gap: 5vmin;
+    gap: 3vmin;
     z-index: 20;
 }
 
 .gold-btn {
-    background: linear-gradient(135deg, #f3d47a 0%, #cfa341 20%, #ebd082 50%, #b28525 80%, #f3d47a 100%);
-    border: 2px solid #523910;
-    border-radius: 25px;
-    padding: 1.5vmin 4vmin;
-    color: #2b1d07;
+    background: linear-gradient(135deg, #f9d976 0%, #e9b646 25%, #f1c75c 50%, #c19a3b 75%, #d48f25 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
+    
+    border: none;
+    padding: 1vmin;
     font-family: 'Comic Sans MS', 'Brush Script MT', cursive, sans-serif;
-    font-size: 2.5vmin;
+    font-size: 2.2vmin; /* Deutlich kleiner und feiner */
     font-weight: 900;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8), inset 0 2px 5px rgba(255, 255, 255, 0.6), inset 0 -3px 5px rgba(0, 0, 0, 0.4);
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    
+    /* Umrandung/Schatten für besseren Kontrast auf dem dunklen BG */
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9)) drop-shadow(0px 0px 4px rgba(212, 143, 37, 0.4));
     transition: transform 0.2s ease, filter 0.2s;
 }
 
 .gold-btn:nth-child(1) {
-    transform: rotate(-4deg);
+    transform: rotate(-3deg);
 }
 
 .gold-btn:nth-child(2) {
-    transform: rotate(3deg);
-    margin-top: 1.5vmin; /* Leicht versetzt, passend zum Chaos */
+    transform: rotate(2deg);
+    margin-top: 1vmin;
 }
 
 .gold-btn:hover {
-    filter: brightness(1.1);
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.9)) brightness(1.2);
 }
 
 .gold-btn:active {
     transform: scale(0.9) rotate(0deg);
-    filter: brightness(0.9);
 }
 
 @media (max-width: 768px) {
     .top-menu {
-        top: 12%;
+        top: 25%; /* Mobile: Weiter unten platzieren, damit der Slogan komplett frei liegt */
+        left: 50%;
+        transform: translateX(-50%); /* Auf Mobile besser zentriert lassen, da der Screen schmal ist */
         gap: 8vmin;
-        width: 90vw;
+        width: 100vw;
         justify-content: center;
     }
     .gold-btn {
-        font-size: 4vmin;
-        padding: 2.5vmin 7vmin;
+        font-size: 5vmin; /* Auf dem Handy gut lesbar, aber ohne Box-Hintergrund nicht störend */
+        padding: 1.5vmin;
     }
 }
