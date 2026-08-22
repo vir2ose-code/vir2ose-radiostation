@@ -1,5 +1,5 @@
-// Playlist mit deinen Tracks aus der AUDIO-LIBRARY
-const playlist = [
+// Master Playlist mit allen Tracks
+const masterPlaylist = [
     "AUDIO-LIBRARY/ADVENTURE WORLD by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/BY YOUR SIDE by vir2ose.mp3",
     "AUDIO-LIBRARY/Caramells.mp3",
@@ -28,6 +28,65 @@ const playlist = [
     "AUDIO-LIBRARY/ARTISTS/Camadyn AI/2.mp3",
     "AUDIO-LIBRARY/ARTISTS/Camadyn AI/3.mp3"
 ];
+
+const artistPlaylists = {
+    "André Rössig": [
+        "AUDIO-LIBRARY/ARTISTS/André Rössig/Mein Leben Lang_RadioRemix_ (Caleidio).mp3",
+        "AUDIO-LIBRARY/ARTISTS/André Rössig/Sommerzeit (Reggae) - Caleidio.mp3"
+    ],
+    "Camadyn AI": [
+        "AUDIO-LIBRARY/ARTISTS/Camadyn AI/1.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn AI/2.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn AI/3.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn AI/Echoes_of_Memory_Camadyn.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn AI/Let's_go_into_the_future_together.mp3"
+    ],
+    "End Of Vision": [
+        "AUDIO-LIBRARY/ARTISTS/End Of Vision/PASSIONATELY - EOV by vir2ose 2025.mp3",
+        "AUDIO-LIBRARY/ARTISTS/End Of Vision/WENN DU ... EOV ... by vir2ose 2023.mp3"
+    ],
+    "vir2ose 2026": [
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/ADVENTURE WORLD by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/BY YOUR SIDE by vir2ose.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/FUEGO ELEMENT by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/GHOST OF THE PRODUCTION by vir2ose.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/GLADIATOR (Hans Zimmer) Remix and Remaster by vir2ose 2025.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/I DON'T KNOW WHY by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/IN MY HEAD by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/NEW WORLD ORDER by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/PHANTOM OF THE EDM by vir2ose 2025.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/RHAPSODY OF MY LIFE by vir2ose 2023.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/SAND OF THE DESSERT by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/TERRA NATURI by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/TIME (Hans Zimmer) Remix ans Remaster by vir2ose 2025.mp3",
+        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/VIOLIN PROJECT by vir2ose 2024.mp3"
+    ]
+};
+
+const genrePlaylists = {
+    "POP": [
+        "AUDIO-LIBRARY/GENRES/POP/Mein Leben Lang_RadioRemix_ (Caleidio).mp3",
+        "AUDIO-LIBRARY/GENRES/POP/Sommerzeit (Reggae) - Caleidio.mp3"
+    ],
+    "ROCK": [
+        "AUDIO-LIBRARY/GENRES/ROCK/NEW_BEGINNING_EOV_by_vir2ose.mp3",
+        "AUDIO-LIBRARY/GENRES/ROCK/WENN DU ... EOV ... by vir2ose 2023.mp3"
+    ],
+    "PSYCHODELIC": [
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/1.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/2.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/3.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/Echoes_of_Memory_Camadyn.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/GHOST OF THE PRODUCTION by vir2ose.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/Let's_go_into_the_future_together.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/NEW WORLD ORDER by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/PASSIONATELY - EOV by vir2ose 2025.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/PHANTOM OF THE EDM by vir2ose 2025.mp3"
+    ]
+};
+
+// Die aktive Playlist (Standardmäßig die Master Playlist kopieren)
+let playlist = [...masterPlaylist];
 
 // Funktion zum zufälligen Mischen der Playlist (Fisher-Yates Shuffle)
 function shuffleArray(array) {
@@ -194,3 +253,85 @@ function updateClock() {
 // Jede Sekunde aktualisieren
 setInterval(updateClock, 1000);
 updateClock(); // Sofortiger Aufruf beim Start
+
+// --- Modal & Dynamische Playlists ---
+const modal = document.getElementById('menu-modal');
+const closeModalBtn = document.getElementById('close-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalList = document.getElementById('modal-list');
+const btnArtists = document.getElementById('btn-artists');
+const btnGenres = document.getElementById('btn-genres');
+
+function openModal(title, dataObject) {
+    modalTitle.innerText = title;
+    modalList.innerHTML = ''; // Liste leeren
+
+    // "ALLE TRACKS" Option hinzufügen, um zurück zur Master-Playlist zu wechseln
+    const allTracksItem = document.createElement('li');
+    allTracksItem.classList.add('menu-list-item');
+    allTracksItem.innerText = 'ALLE TRACKS (Zufall)';
+    allTracksItem.onclick = () => {
+        changePlaylist(masterPlaylist);
+        closeModal();
+    };
+    modalList.appendChild(allTracksItem);
+
+    // Iteriere über die Kategorien (Artists oder Genres)
+    for (const [name, tracks] of Object.entries(dataObject)) {
+        if (tracks.length === 0) continue; // Leere Ordner ignorieren
+
+        const li = document.createElement('li');
+        li.classList.add('menu-list-item');
+        li.innerText = name;
+        li.onclick = () => {
+            changePlaylist(tracks);
+            closeModal();
+        };
+        modalList.appendChild(li);
+    }
+
+    modal.classList.remove('hidden');
+}
+
+function closeModal() {
+    modal.classList.add('hidden');
+}
+
+function changePlaylist(newTracks) {
+    // 1. Audio stoppen
+    stopTrack();
+    
+    // 2. Playlist ersetzen (Kopie erstellen)
+    playlist = [...newTracks];
+    
+    // 3. Neu mischen
+    shuffleArray(playlist);
+    
+    // 4. Index zurücksetzen und starten
+    currentTrackIndex = 0;
+    loadTrack(currentTrackIndex);
+    playTrack();
+}
+
+if (btnArtists) {
+    btnArtists.addEventListener('click', () => {
+        openModal('ARTISTS', artistPlaylists);
+    });
+}
+
+if (btnGenres) {
+    btnGenres.addEventListener('click', () => {
+        openModal('GENRES', genrePlaylists);
+    });
+}
+
+if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+}
+
+// Modal schließen, wenn man außerhalb klickt
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal();
+    }
+});

@@ -224,6 +224,105 @@ body {
     transform: scale(0.95);
 }
 
+/* --- Modal Overlay & Listen --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background: rgba(20, 15, 5, 0.85);
+    border: 2px solid rgba(212, 175, 55, 0.5); /* Goldener Rand */
+    border-radius: 20px;
+    padding: 3vmin;
+    width: 80vw;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(212, 175, 55, 0.1);
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: rgba(212, 175, 55, 0.8);
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.close-btn:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.modal-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic;
+    color: #f9d976;
+    font-size: 3.5vmin;
+    margin-bottom: 3vmin;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.modal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+/* Scrollbar für die Liste auf Desktop */
+.modal-list::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-list::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.5);
+    border-radius: 10px;
+}
+
+.menu-list-item {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ddd;
+    font-size: 2.5vmin;
+    padding: 2vmin;
+    margin: 1vmin 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.menu-list-item:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.4);
+    color: #f9d976;
+    transform: translateX(5px);
+}
+
 @media (max-width: 768px) {
     .gold-heading {
         display: none; /* Auf dem Smartphone ist die Schrift bereits im Bild eingebrannt */
@@ -242,5 +341,12 @@ body {
     }
     .separator {
         font-size: 5vmin;
+    }
+    .modal-title {
+        font-size: 6vmin;
+    }
+    .menu-list-item {
+        font-size: 5vmin;
+        padding: 3vmin;
     }
 }

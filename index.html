@@ -22,9 +22,20 @@
 
     <!-- Top Menu für Artists und Genres -->
     <div class="top-menu">
-        <button class="gold-btn" aria-label="Artist">ARTIST</button>
+        <button id="btn-artists" class="gold-btn" aria-label="Artist">ARTIST</button>
         <span class="separator">|</span>
-        <button class="gold-btn" aria-label="Genres">GENRES</button>
+        <button id="btn-genres" class="gold-btn" aria-label="Genres">GENRES</button>
+    </div>
+
+    <!-- Modal Overlay für Menüs -->
+    <div id="menu-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">&times;</button>
+            <h3 id="modal-title" class="modal-title">Title</h3>
+            <ul id="modal-list" class="modal-list">
+                <!-- Wird via JS befüllt -->
+            </ul>
+        </div>
     </div>
 
     <!-- Full-Screen Control Deck über der gerenderten Grafik -->
