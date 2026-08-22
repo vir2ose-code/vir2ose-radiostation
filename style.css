@@ -150,8 +150,8 @@ body {
 .top-menu {
     position: absolute;
     top: 15%; 
-    left: 50%;
-    transform: translateX(-50%);
+    left: 25%; /* Desktop: Weiter nach links verschoben */
+    transform: none; /* Zentrierung auf Desktop aufheben */
     display: flex;
     align-items: center;
     gap: 2vmin;
@@ -205,6 +205,8 @@ body {
 @media (max-width: 768px) {
     .top-menu {
         top: 28%; /* Unter dem gesamten Slogan-Block auf Mobile */
+        left: 50%; /* Auf Mobile weiterhin zentriert */
+        transform: translateX(-50%);
         width: max-content;
         padding: 1.5vmin 5vmin;
         gap: 3vmin;
