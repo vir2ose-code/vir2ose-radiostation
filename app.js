@@ -266,10 +266,10 @@ function openModal(title, dataObject) {
     modalTitle.innerText = title;
     modalList.innerHTML = ''; // Liste leeren
 
-    // "ALLE TRACKS" Option hinzufügen, um zurück zur Master-Playlist zu wechseln
+    // "ALL TRACKS" Option hinzufügen, um zurück zur Master-Playlist zu wechseln
     const allTracksItem = document.createElement('li');
     allTracksItem.classList.add('menu-list-item');
-    allTracksItem.innerText = 'ALLE TRACKS (Zufall)';
+    allTracksItem.innerText = 'ALL TRACKS - RANDOM';
     allTracksItem.onclick = () => {
         changePlaylist(masterPlaylist);
         closeModal();
