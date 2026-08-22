@@ -146,12 +146,33 @@ body {
     }
 }
 
+/* --- Goldene Überschrift (Desktop) --- */
+.gold-heading {
+    position: absolute;
+    top: 10%; /* Über dem Menu platziert */
+    left: 35%; /* Mittig zentriert zum Menü */
+    transform: translateX(-50%);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 2.5vmin;
+    font-style: italic;
+    font-weight: normal;
+    background: linear-gradient(135deg, #f9d976 0%, #e9b646 25%, #f1c75c 50%, #c19a3b 75%, #d48f25 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.9));
+    z-index: 20;
+    margin: 0;
+    white-space: nowrap;
+}
+
 /* --- Top Menu: Artist & Genres --- */
 .top-menu {
     position: absolute;
     top: 15%; 
-    left: 25%; /* Desktop: Weiter nach links verschoben */
-    transform: none; /* Zentrierung auf Desktop aufheben */
+    left: 35%; /* Desktop: Etwas weiter nach rechts korrigiert, aber links von der Mitte */
+    transform: translateX(-50%); /* Zentriert unter die Überschrift */
     display: flex;
     align-items: center;
     gap: 2vmin;
@@ -183,9 +204,10 @@ body {
     
     border: none;
     padding: 0.5vmin 1vmin;
-    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, sans-serif;
+    font-family: 'Georgia', 'Times New Roman', serif; /* Elegante Schrift wie im Entwurf */
+    font-style: italic;
     font-size: 2.2vmin;
-    font-weight: 900;
+    font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
     
@@ -203,6 +225,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .gold-heading {
+        display: none; /* Auf dem Smartphone ist die Schrift bereits im Bild eingebrannt */
+    }
+    
     .top-menu {
         top: 28%; /* Unter dem gesamten Slogan-Block auf Mobile */
         left: 50%; /* Auf Mobile weiterhin zentriert */
