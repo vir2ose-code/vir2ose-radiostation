@@ -145,3 +145,61 @@ body {
         transform: none;
     }
 }
+
+/* --- Top Menu: Artist & Genres --- */
+.top-menu {
+    position: absolute;
+    top: 15%; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5vmin;
+    z-index: 20;
+}
+
+.gold-btn {
+    background: linear-gradient(135deg, #f3d47a 0%, #cfa341 20%, #ebd082 50%, #b28525 80%, #f3d47a 100%);
+    border: 2px solid #523910;
+    border-radius: 25px;
+    padding: 1.5vmin 4vmin;
+    color: #2b1d07;
+    font-family: 'Comic Sans MS', 'Brush Script MT', cursive, sans-serif;
+    font-size: 2.5vmin;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8), inset 0 2px 5px rgba(255, 255, 255, 0.6), inset 0 -3px 5px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    transition: transform 0.2s ease, filter 0.2s;
+}
+
+.gold-btn:nth-child(1) {
+    transform: rotate(-4deg);
+}
+
+.gold-btn:nth-child(2) {
+    transform: rotate(3deg);
+    margin-top: 1.5vmin; /* Leicht versetzt, passend zum Chaos */
+}
+
+.gold-btn:hover {
+    filter: brightness(1.1);
+}
+
+.gold-btn:active {
+    transform: scale(0.9) rotate(0deg);
+    filter: brightness(0.9);
+}
+
+@media (max-width: 768px) {
+    .top-menu {
+        top: 12%;
+        gap: 8vmin;
+        width: 90vw;
+        justify-content: center;
+    }
+    .gold-btn {
+        font-size: 4vmin;
+        padding: 2.5vmin 7vmin;
+    }
+}

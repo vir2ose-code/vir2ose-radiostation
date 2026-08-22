@@ -2,15 +2,19 @@
 const playlist = [
     "AUDIO-LIBRARY/ADVENTURE WORLD by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/BY YOUR SIDE by vir2ose.mp3",
+    "AUDIO-LIBRARY/Caramells.mp3",
+    "AUDIO-LIBRARY/Echoes_In_The_Void.mp3",
+    "AUDIO-LIBRARY/Echoes_of_Memory_Camadyn.mp3",
     "AUDIO-LIBRARY/FUEGO ELEMENT by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/GHOST OF THE PRODUCTION by vir2ose.mp3",
     "AUDIO-LIBRARY/GLADIATOR (Hans Zimmer) Remix and Remaster by vir2ose 2025.mp3",
     "AUDIO-LIBRARY/I DON'T KNOW WHY by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/IN MY HEAD by vir2ose 2024.mp3",
-    "AUDIO-LIBRARY/INDIAN  MOON by vir2ose 2023.mp3",
-    "AUDIO-LIBRARY/Mein Leben Lang (Caleidio).mp3",
+    "AUDIO-LIBRARY/Lablabla.mp3",
+    "AUDIO-LIBRARY/Let's_go_into_the_future_together.mp3",
     "AUDIO-LIBRARY/Mein Leben Lang_RadioRemix_ (Caleidio).mp3",
     "AUDIO-LIBRARY/NEW WORLD ORDER by vir2ose 2024.mp3",
+    "AUDIO-LIBRARY/NEW_BEGINNING_EOV_by_vir2ose.mp3",
     "AUDIO-LIBRARY/PASSIONATELY - EOV by vir2ose 2025.mp3",
     "AUDIO-LIBRARY/PHANTOM OF THE EDM by vir2ose 2025.mp3",
     "AUDIO-LIBRARY/RHAPSODY OF MY LIFE by vir2ose 2023.mp3",
@@ -19,7 +23,10 @@ const playlist = [
     "AUDIO-LIBRARY/TERRA NATURI by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/TIME (Hans Zimmer) Remix ans Remaster by vir2ose 2025.mp3",
     "AUDIO-LIBRARY/VIOLIN PROJECT by vir2ose 2024.mp3",
-    "AUDIO-LIBRARY/WENN DU ... EOV ... by vir2ose 2023.mp3"
+    "AUDIO-LIBRARY/WENN DU ... EOV ... by vir2ose 2023.mp3",
+    "AUDIO-LIBRARY/ARTISTS/Camadyn AI/1.mp3",
+    "AUDIO-LIBRARY/ARTISTS/Camadyn AI/2.mp3",
+    "AUDIO-LIBRARY/ARTISTS/Camadyn AI/3.mp3"
 ];
 
 // Funktion zum zufälligen Mischen der Playlist (Fisher-Yates Shuffle)
