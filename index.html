@@ -22,31 +22,31 @@
     <div id="app-viewport">
         <!-- 1. Background Layer -->
         <picture>
-            <source media="(max-aspect-ratio: 1/1)" srcset="Assets Smartphone/background_smartphone.png">
+            <source media="(orientation: portrait), (max-width: 768px)" srcset="Assets Smartphone/background_smartphone.png">
             <img class="layer" src="Assets/background.png" alt="Background" draggable="false">
         </picture>
         
         <!-- 2. Menu Layer -->
         <picture>
-            <source media="(max-aspect-ratio: 1/1)" srcset="Assets Smartphone/buttons_smartphone.png">
+            <source media="(orientation: portrait), (max-width: 768px)" srcset="Assets Smartphone/buttons_smartphone.png">
             <img class="layer" src="Assets/menü_about.png" alt="Menu" draggable="false">
         </picture>
         
         <!-- 3. Controls Layer (Inactive) -->
         <picture>
-            <source media="(max-aspect-ratio: 1/1)" srcset="Assets Smartphone/bedienelemente_smartphone.png">
+            <source media="(orientation: portrait), (max-width: 768px)" srcset="Assets Smartphone/bedienelemente_smartphone.png">
             <img class="layer" id="layer-controls-inactive" src="Assets/bedienelemente_play_pause_stop_1.png" alt="Controls" draggable="false">
         </picture>
         
-        <!-- 4. Controls Layer (Active / Glowing) -->
+        <!-- 4. Controls Layer (Active / Glowing) -> Nur auf Desktop existent! -->
         <picture>
-            <source media="(max-aspect-ratio: 1/1)" srcset="Assets Smartphone/bedienelemente_smartphone.png">
+            <source media="(orientation: portrait), (max-width: 768px)" srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
             <img class="layer hidden-layer" id="layer-controls-active" src="Assets/bedienelemente_play_pause_stop_2.png" alt="Controls Glowing" draggable="false">
         </picture>
         
         <!-- 5. Random Repeater Layer -->
         <picture>
-            <source media="(max-aspect-ratio: 1/1)" srcset="Assets Smartphone/random_repeter_smartphone.png">
+            <source media="(orientation: portrait), (max-width: 768px)" srcset="Assets Smartphone/random_repeter_smartphone.png">
             <img class="layer" id="layer-random" src="Assets/random_repeter.png" alt="Random Repeater" draggable="false">
         </picture>
         

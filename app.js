@@ -184,6 +184,12 @@ function togglePlay() {
     }
 }
 
+function clearGlows() {
+    if (playBtn) playBtn.classList.remove('glow-gold');
+    if (btnPause) btnPause.classList.remove('glow-green');
+    if (btnStop) btnStop.classList.remove('glow-red');
+}
+
 function playTrack() {
     // Sicherstellen, dass der AudioContext aufgebaut ist
     initAudioContext();
@@ -195,7 +201,9 @@ function playTrack() {
     
     audio.play().then(() => {
         isPlaying = true;
-        if (layerActive) layerActive.classList.remove('hidden-layer'); // Leuchtende Ebene einblenden
+        if (layerActive) layerActive.classList.remove('hidden-layer'); // Leuchtende Ebene einblenden (Desktop)
+        clearGlows();
+        if (playBtn) playBtn.classList.add('glow-gold'); // Hitbox-Glow für Smartphone
     }).catch(err => {
         console.error("Wiedergabe fehlgeschlagen. Grund:", err);
     });
@@ -204,14 +212,18 @@ function playTrack() {
 function pauseTrack() {
     audio.pause();
     isPlaying = false;
-    if (layerActive) layerActive.classList.add('hidden-layer'); // Leuchtende Ebene ausblenden
+    if (layerActive) layerActive.classList.add('hidden-layer');
+    clearGlows();
+    if (btnPause) btnPause.classList.add('glow-green');
 }
 
 function stopTrack() {
     audio.pause();
     audio.currentTime = 0;
     isPlaying = false;
-    if (layerActive) layerActive.classList.add('hidden-layer'); // Leuchtende Ebene ausblenden
+    if (layerActive) layerActive.classList.add('hidden-layer');
+    clearGlows();
+    if (btnStop) btnStop.classList.add('glow-red');
 }
 
 function nextTrack() {
@@ -382,10 +394,15 @@ const layerRandom = document.getElementById('layer-random');
 
 if (btnRandom) {
     btnRandom.addEventListener('click', () => {
-        // Leuchteffekt triggern
+        // Leuchteffekt und 360-Drehung triggern
         if (layerRandom) {
-            layerRandom.classList.add('glow-effect');
-            setTimeout(() => layerRandom.classList.remove('glow-effect'), 400);
+            layerRandom.classList.add('glow-effect', 'spin-anim');
+            btnRandom.classList.add('glow-gold'); // Hitbox Glow für Smartphone
+            
+            setTimeout(() => {
+                layerRandom.classList.remove('glow-effect', 'spin-anim');
+                btnRandom.classList.remove('glow-gold');
+            }, 600);
         }
         
         // Aktuelle Playlist neu mischen
