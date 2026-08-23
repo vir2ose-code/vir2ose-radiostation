@@ -272,8 +272,8 @@ body, html {
     
     /* Uhrzeit anpassen */
     #clock-container {
-        top: auto;
-        bottom: 12%;
+        top: 88%;
+        bottom: auto;
         left: 50%;
         transform: translateX(-50%);
         width: 80%;

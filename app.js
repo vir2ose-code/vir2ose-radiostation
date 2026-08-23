@@ -223,7 +223,13 @@ function stopTrack() {
     isPlaying = false;
     if (layerActive) layerActive.classList.add('hidden-layer');
     clearGlows();
-    if (btnStop) btnStop.classList.add('glow-red');
+    
+    if (btnStop) {
+        btnStop.classList.add('glow-red');
+        setTimeout(() => {
+            btnStop.classList.remove('glow-red');
+        }, 400); // Nur kurz anleuchten
+    }
 }
 
 function nextTrack() {
