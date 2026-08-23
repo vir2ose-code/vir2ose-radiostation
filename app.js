@@ -263,7 +263,7 @@ if (btnPause) btnPause.addEventListener('click', pauseTrack);
 // Service Worker Registration
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
+        navigator.serviceWorker.register('/sw.js')
             .then(reg => console.log('Service Worker erfolgreich registriert auf Scope: ', reg.scope))
             .catch(err => console.error('Service Worker Registrierung fehlgeschlagen: ', err));
     });
