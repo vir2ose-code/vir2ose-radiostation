@@ -1,12 +1,13 @@
 {
-  "name": "vir2ose-Radio",
-  "short_name": "vir2oseRadio",
+  "id": "/?source=pwa",
+  "name": "vir2oseRadio",
+  "short_name": "vir2ose",
   "description": "Dein Gateway für Independent Audio, Songwriting und exklusive Künstler-Talks.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#0d0e12",
+  "theme_color": "#d4af37",
   "orientation": "any",
   "dir": "ltr",
   "lang": "de",
@@ -20,25 +21,13 @@
         "src": "icon-192.png",
         "sizes": "192x192",
         "type": "image/png",
-        "purpose": "any"
-    },
-    {
-        "src": "icon-192.png",
-        "sizes": "192x192",
-        "type": "image/png",
-        "purpose": "maskable"
+        "purpose": "any maskable"
     },
     {
         "src": "icon-512.png",
         "sizes": "512x512",
         "type": "image/png",
-        "purpose": "any"
-    },
-    {
-        "src": "icon-512.png",
-        "sizes": "512x512",
-        "type": "image/png",
-        "purpose": "maskable"
+        "purpose": "any maskable"
     }
   ],
   "shortcuts": [
@@ -52,6 +41,22 @@
                 "type": "image/png"
             }
         ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/Assets/background.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "vir2ose Radio Desktop View"
+    },
+    {
+      "src": "/Assets_Smartphone/background_smartphone.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "vir2ose Radio Mobile View"
     }
   ]
 }

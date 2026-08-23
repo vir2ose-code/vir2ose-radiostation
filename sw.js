@@ -1,70 +1,53 @@
-const CACHE_NAME = 'vir2ose-radio-v14';
+const CACHE_NAME = 'vir2ose-radio-v2';
 const ASSETS_TO_CACHE = [
-  './',
-  './index.html',
-  './style.css',
-  './app.js',
-  './manifest.json',
-  './RADIO ONLINE BACK 1.png',
-  './vir2ose LOGO TRANS.png',
-  './Online Radio fm V4.png',
-  './Online Radio VERTiIKAL SMARTPHONE.png',
-  './icon-192.png',
-  './icon-512.png'
+  '/',
+  '/index.html',
+  '/manifest.json',
+  '/style.css',
+  '/app.js',
+  '/icon-192.png',
+  '/icon-512.png',
+  '/Assets/background.png',
+  '/Assets/menü_about.png',
+  '/Assets/bedienelemente_play_pause_stop_1.png',
+  '/Assets/bedienelemente_play_pause_stop_2.png',
+  '/Assets/random_repeter.png',
+  '/Assets_Smartphone/background_smartphone.png',
+  '/Assets_Smartphone/bedienelemente_smartphone.png',
+  '/Assets_Smartphone/buttons_smartphone.png',
+  '/Assets_Smartphone/random_repeter_smartphone.png'
 ];
 
-// Install Event: App-Shell cachen
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('[Service Worker] Caching App Shell');
-        return cache.addAll(ASSETS_TO_CACHE);
-      })
-      .then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS_TO_CACHE))
   );
+  self.skipWaiting();
 });
 
-// Activate Event: Alte Caches aufräumen
-self.addEventListener('activate', event => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
+    caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheNames.map(cache => {
-          if (cache !== CACHE_NAME) {
-            console.log('[Service Worker] Lösche alten Cache:', cache);
-            return caches.delete(cache);
-          }
-        })
+        cacheNames.filter((name) => name !== CACHE_NAME).map((name) => caches.delete(name))
       );
-    }).then(() => self.clients.claim())
+    })
   );
 });
 
-// Fetch Event: Intelligente Trennung zwischen statischen Assets und Live-Audio
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // CRITICAL STREAM PROTECTION: 
-  // Wenn die URL '/stream' enthält oder auf Audio/Icecast-Muster matcht, 
-  // erzwingen wir eine reine Netzwerk-Strategie und brechen sofort ab.
-  const acceptHeader = event.request.headers.get('Accept');
-  const isAudioAccept = acceptHeader && acceptHeader.includes('audio');
-  const isAudioDestination = event.request.destination === 'audio';
-
-  if (url.pathname.includes('/stream') || isAudioAccept || isAudioDestination) {
-    console.log('[Service Worker] Stream erkannt - Bypassing Cache:', event.request.url);
+  // Audio-Streams überspringen, damit sie nicht gecacht werden
+  if (event.request.destination === 'audio' || url.pathname.includes('/AUDIO-LIBRARY')) {
     return event.respondWith(fetch(event.request));
   }
 
-  // Cache-First Strategie für alle statischen App-Shell Komponenten
   event.respondWith(
-    caches.match(event.request)
-      .then(cachedResponse => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        return fetch(event.request);
-      })
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    }).catch(() => {
+      return caches.match('/index.html');
+    })
   );
 });
