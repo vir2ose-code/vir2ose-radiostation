@@ -23,43 +23,42 @@ const masterPlaylist = [
     "AUDIO-LIBRARY/TERRA NATURI by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/TIME (Hans Zimmer) Remix ans Remaster by vir2ose 2025.mp3",
     "AUDIO-LIBRARY/VIOLIN PROJECT by vir2ose 2024.mp3",
-    "AUDIO-LIBRARY/WENN DU ... EOV ... by vir2ose 2023.mp3",
-    "AUDIO-LIBRARY/ARTISTS/Camadyn AI/1.mp3",
-    "AUDIO-LIBRARY/ARTISTS/Camadyn AI/2.mp3",
-    "AUDIO-LIBRARY/ARTISTS/Camadyn AI/3.mp3"
+    "AUDIO-LIBRARY/WENN DU ... EOV ... by vir2ose 2023.mp3"
 ];
 
 const artistPlaylists = {
-    "André Rössig": [
-        "AUDIO-LIBRARY/ARTISTS/André Rössig/Mein Leben Lang_RadioRemix_ (Caleidio).mp3",
-        "AUDIO-LIBRARY/ARTISTS/André Rössig/Sommerzeit (Reggae) - Caleidio.mp3"
+    "Camadyn-AI-Independent-Music": [
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/1.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/2.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/3.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/DUDU.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/Echoes_of_Memory_Camadyn.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/Let's_go_into_the_future_together.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/NUNU.mp3"
     ],
-    "Camadyn AI": [
-        "AUDIO-LIBRARY/ARTISTS/Camadyn AI/1.mp3",
-        "AUDIO-LIBRARY/ARTISTS/Camadyn AI/2.mp3",
-        "AUDIO-LIBRARY/ARTISTS/Camadyn AI/3.mp3",
-        "AUDIO-LIBRARY/ARTISTS/Camadyn AI/Echoes_of_Memory_Camadyn.mp3",
-        "AUDIO-LIBRARY/ARTISTS/Camadyn AI/Let's_go_into_the_future_together.mp3"
+    "End Of Vision (BAND)": [
+        "AUDIO-LIBRARY/ARTISTS/End Of Vision (BAND)/PASSIONATELY - EOV by vir2ose 2025.mp3",
+        "AUDIO-LIBRARY/ARTISTS/End Of Vision (BAND)/WENN DU ... EOV ... by vir2ose 2023.mp3"
     ],
-    "End Of Vision": [
-        "AUDIO-LIBRARY/ARTISTS/End Of Vision/PASSIONATELY - EOV by vir2ose 2025.mp3",
-        "AUDIO-LIBRARY/ARTISTS/End Of Vision/WENN DU ... EOV ... by vir2ose 2023.mp3"
+    "Waldemar Krucinski vir2ose": [
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/ADVENTURE WORLD by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/BY YOUR SIDE by vir2ose.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/FUEGO ELEMENT by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/GHOST OF THE PRODUCTION by vir2ose.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/GLADIATOR (Hans Zimmer) Remix and Remaster by vir2ose 2025.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/I DON'T KNOW WHY by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/IN MY HEAD by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/NEW WORLD ORDER by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/PHANTOM OF THE EDM by vir2ose 2025.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/RHAPSODY OF MY LIFE by vir2ose 2023.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/SAND OF THE DESSERT by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/TERRA NATURI by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/TIME (Hans Zimmer) Remix ans Remaster by vir2ose 2025.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Waldemar Krucinski vir2ose/VIOLIN PROJECT by vir2ose 2024.mp3"
     ],
-    "vir2ose 2026": [
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/ADVENTURE WORLD by vir2ose 2024.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/BY YOUR SIDE by vir2ose.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/FUEGO ELEMENT by vir2ose 2024.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/GHOST OF THE PRODUCTION by vir2ose.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/GLADIATOR (Hans Zimmer) Remix and Remaster by vir2ose 2025.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/I DON'T KNOW WHY by vir2ose 2024.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/IN MY HEAD by vir2ose 2024.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/NEW WORLD ORDER by vir2ose 2024.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/PHANTOM OF THE EDM by vir2ose 2025.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/RHAPSODY OF MY LIFE by vir2ose 2023.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/SAND OF THE DESSERT by vir2ose 2024.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/TERRA NATURI by vir2ose 2024.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/TIME (Hans Zimmer) Remix ans Remaster by vir2ose 2025.mp3",
-        "AUDIO-LIBRARY/ARTISTS/vir2ose 2026/VIOLIN PROJECT by vir2ose 2024.mp3"
+    "André Rössig_Caleidio": [
+        "AUDIO-LIBRARY/ARTISTS/André Rössig_Caleidio/Mein Leben Lang_RadioRemix_ (Caleidio).mp3",
+        "AUDIO-LIBRARY/ARTISTS/André Rössig_Caleidio/Sommerzeit (Reggae) - Caleidio.mp3"
     ]
 };
 
@@ -76,12 +75,34 @@ const genrePlaylists = {
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/1.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/2.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/3.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/DUDU.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/Echoes_of_Memory_Camadyn.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/GHOST OF THE PRODUCTION by vir2ose.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/Let's_go_into_the_future_together.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/NEW WORLD ORDER by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/NUNU.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/PASSIONATELY - EOV by vir2ose 2025.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/PHANTOM OF THE EDM by vir2ose 2025.mp3"
+    ],
+    "AI Support": [
+        "AUDIO-LIBRARY/GENRES/AI Support/1.mp3",
+        "AUDIO-LIBRARY/GENRES/AI Support/2.mp3",
+        "AUDIO-LIBRARY/GENRES/AI Support/3.mp3",
+        "AUDIO-LIBRARY/GENRES/AI Support/DUDU.mp3",
+        "AUDIO-LIBRARY/GENRES/AI Support/NUNU.mp3"
+    ],
+    "EDM": [
+        "AUDIO-LIBRARY/GENRES/EDM/ADVENTURE WORLD by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/GENRES/EDM/BY YOUR SIDE by vir2ose.mp3",
+        "AUDIO-LIBRARY/GENRES/EDM/Echoes_In_The_Void.mp3",
+        "AUDIO-LIBRARY/GENRES/EDM/FUEGO ELEMENT by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/GENRES/EDM/GHOST OF THE PRODUCTION by vir2ose.mp3",
+        "AUDIO-LIBRARY/GENRES/EDM/I DON'T KNOW WHY by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/GENRES/EDM/IN MY HEAD by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/GENRES/EDM/PHANTOM OF THE EDM by vir2ose 2025.mp3",
+        "AUDIO-LIBRARY/GENRES/EDM/RHAPSODY OF MY LIFE by vir2ose 2023.mp3",
+        "AUDIO-LIBRARY/GENRES/EDM/SAND OF THE DESSERT by vir2ose 2024.mp3",
+        "AUDIO-LIBRARY/GENRES/EDM/TERRA NATURI by vir2ose 2024.mp3"
     ]
 };
 
