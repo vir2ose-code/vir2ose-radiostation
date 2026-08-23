@@ -17,37 +17,45 @@
 </head>
 <body>
 
-    <!-- Goldene Überschrift (nur Desktop) -->
-    <h2 class="gold-heading">The future of artist-driven radio.</h2>
-
-    <!-- Top Menu für Artists und Genres -->
-    <div class="top-menu">
-        <button id="btn-artists" class="gold-btn" aria-label="Artist">ARTIST</button>
-        <span class="separator">|</span>
-        <button id="btn-genres" class="gold-btn" aria-label="Genres">GENRES</button>
-    </div>
-
-    <!-- Modal Overlay für Menüs -->
-    <div id="menu-modal" class="modal-overlay hidden">
-        <div class="modal-content">
-            <button id="close-modal" class="close-btn">&times;</button>
-            <h3 id="modal-title" class="modal-title">Title</h3>
-            <ul id="modal-list" class="modal-list">
-                <!-- Wird via JS befüllt -->
-            </ul>
+    <div id="app-viewport">
+        <!-- 1. Background Layer -->
+        <img class="layer" src="Assets/background.png" alt="Background" draggable="false">
+        
+        <!-- 2. Menu Layer -->
+        <img class="layer" src="Assets/menü_about.png" alt="Menu" draggable="false">
+        
+        <!-- 3. Controls Layer (Inactive) -->
+        <img class="layer" id="layer-controls-inactive" src="Assets/bedienelemente_play_pause_stop_1.png" alt="Controls" draggable="false">
+        
+        <!-- 4. Controls Layer (Active / Glowing) -->
+        <img class="layer hidden-layer" id="layer-controls-active" src="Assets/bedienelemente_play_pause_stop_2.png" alt="Controls Glowing" draggable="false">
+        
+        <!-- Clock Container (Positioned exactly over the Photoshop template) -->
+        <div id="clock-container">
+            <div id="clock-day">SUNDAY</div>
+            <div id="clock-date">23.08.2026</div>
+            <div id="clock-time">18:30:00</div>
         </div>
-    </div>
 
-    <!-- Full-Screen Control Deck über der gerenderten Grafik -->
-    <div class="player-container">
-        <div class="control-deck">
-            <div id="date-widget" class="date-widget"></div>
-            
-            <button id="btnStop" class="hotspot" aria-label="Stop"></button>
-            <button id="btnPause" class="hotspot" aria-label="Pause"></button>
-            <button id="playBtn" class="hotspot hotspot-main-coin" aria-label="Play / Pause"></button>
-            
-            <div id="time-widget" class="time-widget"></div>
+        <!-- Invisible Hitboxes for Menus -->
+        <button id="btn-artists" class="hitbox hitbox-artists" aria-label="Artists"></button>
+        <button id="btn-genres" class="hitbox hitbox-genres" aria-label="Genres"></button>
+        <button id="btn-about" class="hitbox hitbox-about" aria-label="About"></button>
+        
+        <!-- Invisible Hitboxes for Controls -->
+        <button id="btnStop" class="hitbox hitbox-stop" aria-label="Stop"></button>
+        <button id="btnPause" class="hitbox hitbox-pause" aria-label="Pause"></button>
+        <button id="playBtn" class="hitbox hitbox-play" aria-label="Play"></button>
+
+        <!-- Modal Overlay für Menüs -->
+        <div id="menu-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <button id="close-modal" class="close-btn">&times;</button>
+                <h3 id="modal-title" class="modal-title">Title</h3>
+                <ul id="modal-list" class="modal-list">
+                    <!-- Wird via JS befüllt -->
+                </ul>
+            </div>
         </div>
     </div>
 

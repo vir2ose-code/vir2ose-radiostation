@@ -2,227 +2,101 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* Verhindert das blaue Highlight auf Mobilgeräten */
+    -webkit-tap-highlight-color: transparent;
 }
 
-body {
-    /* 1. Visuelle Basis: Full-Screen Background */
-    background: #000 url("Online Radio fm V4.png") center/cover no-repeat;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    /* Verhindert Textmarkierungen und Dragging für echtes App-Feeling */
+body, html {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    font-family: sans-serif;
     user-select: none;
     -webkit-user-drag: none;
 }
 
-/* 2. Steuerungsdeck für die interaktiven Hotspots */
-.control-deck {
-    position: absolute;
-    left: 48%; /* Feinkorrektur zwischen 45.5% und 51% */
-    bottom: 16%;  /* Zwingt die gesamte Kette weiter nach unten */
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3vmin; /* Kleinerer, präziserer Abstand zwischen den Elementen */
+#app-viewport {
+    position: relative;
+    /* Strict 16:9 ratio */
+    aspect-ratio: 16 / 9;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw; /* Default width */
 }
 
-/* Unsichtbare Klickzonen */
-.hotspot {
-    background: transparent;
+/* Ensure width perfectly matches max-height on wider screens to keep 16:9 */
+@media (min-aspect-ratio: 16/9) {
+    #app-viewport {
+        width: 177.77vh; /* 16/9 = 1.7777 */
+        height: 100vh;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    #app-viewport {
+        width: 100vw;
+        height: 56.25vw; /* 9/16 = 0.5625 */
+    }
+}
+
+/* Graphic Layers */
+.layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* WICHTIG: Klicks fallen durch auf die Hitboxen */
+    transition: opacity 0.3s ease;
+}
+
+.hidden-layer {
+    opacity: 0 !important;
+}
+
+/* Invisible Hitboxes */
+.hitbox {
+    position: absolute;
+    background: rgba(255, 0, 0, 0); /* Mach das auf 0.3 für Debugging */
     border: none;
     outline: none;
     cursor: pointer;
-    border-radius: 50%;
-}
-
-/* Alle Elemente bekommen jetzt die gleiche, gezielte Touch-Zone */
-#btnStop, #btnPause, #playBtn {
-    width: 11vmin;
-    height: 11vmin;
-    will-change: transform, opacity, box-shadow, filter;
-    transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.3, 1);
-}
-
-#btnStop:active, #btnPause:active, #playBtn:active {
-    transform: scale(0.95);
-}
-
-/* Falls nötig, kannst du mit einem minimalen 'margin-left' beim #playBtn nachjustieren */
-#playBtn {
-    margin-left: 1vmin; 
-}
-
-/* Kinetische Effekte entfernt, um Skalierungsprobleme auf Smartphones/Tablets zu vermeiden. */
-
-/* 3. Getrenntes Uhrzeit- und Datum-Widget (Links und Rechts der Buttons) */
-.date-widget, .time-widget {
-    position: absolute;
-    color: #ffffff; /* Weiß */
-    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 2.8rem; /* Größer */
-    font-weight: bold; /* Fetter */
-    letter-spacing: 0.05em;
-    pointer-events: none;
     z-index: 10;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
-    white-space: nowrap; /* Kein Umbruch */
-    top: 50%; /* Genau auf Höhe der Buttons (mittig-hoch) */
-    transform: translateY(-50%);
 }
 
-.date-widget {
-    right: 100%; /* Links vom Control-Deck */
-    margin-right: 4vmin; /* Abstand zum Stop-Button */
-}
+/* Positionen der Hitboxen (geschätzt anhand der 1920x1080 Vorlagen) */
+.hitbox-stop { left: 39%; top: 72%; width: 4%; height: 8%; }
+.hitbox-pause { left: 45.7%; top: 72%; width: 3%; height: 8%; }
+.hitbox-play { left: 51.5%; top: 71%; width: 6%; height: 10%; }
 
-.time-widget {
-    left: 100%; /* Rechts vom Control-Deck */
-    margin-left: 4vmin; /* Abstand zum Play-Button */
-}
+.hitbox-artists { left: 59.5%; top: 41%; width: 11%; height: 6%; }
+.hitbox-genres { left: 59.5%; top: 48.5%; width: 11%; height: 6%; }
+.hitbox-about { left: 59.5%; top: 56%; width: 11%; height: 6%; }
 
-@media (max-width: 768px) {
-    body {
-        /* Lade die neue Portrait-Grafik und zwinge sie in den Fullscreen */
-        background-image: url("Online Radio VERTiIKAL SMARTPHONE.png") !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-color: #000000;
-    }
-
-    /* Der Container füllt nun auf Smartphones den gesamten Screen ohne Letterbox-Ränder */
-    .player-container {
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        transform: none;
-    }
-
-    /* Das Control-Deck wird im unteren Drittel positioniert */
-    .control-deck {
-        position: absolute;
-        left: 50%;
-        bottom: 20%;  /* Passt die Buttons exakt unter das zentrierte VIR2OSE-Logo an */
-        transform: translateX(-50%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 5vmin; /* Etwas mehr Abstand für dicke Finger auf dem Handy */
-    }
-
-    /* Buttons größer machen, da vmin auf dem Smartphone = Breite ist und 11vmin winzig wäre */
-    #btnStop, #btnPause, #playBtn {
-        width: 18vmin; 
-        height: 18vmin;
-        border-radius: 50%;
-    }
-
-    .date-widget, .time-widget {
-        font-size: 1.4rem;
-    }
-    
-    .date-widget {
-        /* Auf dem Handy unter die Buttons schieben (linksbündig zum Control-Deck) */
-        right: auto;
-        margin-right: 0;
-        left: 0;
-        top: auto;
-        bottom: -60%;
-        transform: none;
-    }
-    
-    .time-widget {
-        /* Auf dem Handy unter die Buttons schieben (rechtsbündig zum Control-Deck) */
-        left: auto;
-        margin-left: 0;
-        right: 0;
-        top: auto;
-        bottom: -60%;
-        transform: none;
-    }
-}
-
-/* --- Goldene Überschrift (Desktop) --- */
-.gold-heading {
+/* Clock Container */
+#clock-container {
     position: absolute;
-    top: 10%; /* Über dem Menu platziert */
-    left: 35%; /* Mittig zentriert zum Menü */
-    transform: translateX(-50%);
-    font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 2.5vmin;
-    font-style: italic;
-    font-weight: normal;
-    background: linear-gradient(135deg, #f9d976 0%, #e9b646 25%, #f1c75c 50%, #c19a3b 75%, #d48f25 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.9));
-    z-index: 20;
-    margin: 0;
-    white-space: nowrap;
-}
-
-/* --- Top Menu: Artist & Genres --- */
-.top-menu {
-    position: absolute;
-    top: 15%; 
-    left: 35%; /* Desktop: Etwas weiter nach rechts korrigiert, aber links von der Mitte */
-    transform: translateX(-50%); /* Zentriert unter die Überschrift */
-    display: flex;
-    align-items: center;
-    gap: 2vmin;
-    z-index: 20;
-    
-    /* Sleek Glass Pill Alternative */
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(233, 182, 70, 0.3);
-    border-radius: 40px;
-    padding: 1vmin 3vmin;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-}
-
-.separator {
-    color: rgba(233, 182, 70, 0.6);
-    font-size: 2.5vmin;
-    font-family: sans-serif;
-    user-select: none;
-}
-
-.gold-btn {
-    background: linear-gradient(135deg, #f9d976 0%, #e9b646 25%, #f1c75c 50%, #c19a3b 75%, #d48f25 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    
-    border: none;
-    padding: 0.5vmin 1vmin;
-    font-family: 'Georgia', 'Times New Roman', serif; /* Elegante Schrift wie im Entwurf */
-    font-style: italic;
-    font-size: 2.2vmin;
-    font-weight: bold;
+    top: 78%; 
+    left: 27%;
+    width: 10%;
+    text-align: center;
+    color: #e9ba55; /* Goldener Ton passend zum Screenshot */
+    font-family: 'Georgia', 'Times New Roman', serif; /* Etwas Elegantes */
+    z-index: 5;
     text-transform: uppercase;
-    cursor: pointer;
-    
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
-    transition: transform 0.2s ease, filter 0.2s;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1vw;
 }
 
-.gold-btn:hover {
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8)) brightness(1.2);
-    transform: scale(1.05);
-}
-
-.gold-btn:active {
-    transform: scale(0.95);
-}
+#clock-day { font-size: 1.1vw; letter-spacing: 0.1vw; font-weight: bold; }
+#clock-date { font-size: 0.9vw; }
+#clock-time { font-size: 0.9vw; }
 
 /* --- Modal Overlay & Listen --- */
 .modal-overlay {
@@ -324,24 +198,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .gold-heading {
-        display: none; /* Auf dem Smartphone ist die Schrift bereits im Bild eingebrannt */
-    }
-    
-    .top-menu {
-        top: 28%; /* Unter dem gesamten Slogan-Block auf Mobile */
-        left: 50%; /* Auf Mobile weiterhin zentriert */
-        transform: translateX(-50%);
-        width: max-content;
-        padding: 1.5vmin 5vmin;
-        gap: 3vmin;
-    }
-    .gold-btn {
-        font-size: 4.5vmin;
-    }
-    .separator {
-        font-size: 5vmin;
-    }
     .modal-title {
         font-size: 6vmin;
     }

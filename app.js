@@ -111,10 +111,11 @@ let trackSource;
 let compressor;
 let outGain;
 
-// Referenzen zu den 3 Hotspots
+// Referenzen zu den HTML-Elementen
 const playBtn = document.getElementById('playBtn');
 const btnStop = document.getElementById('btnStop');
 const btnPause = document.getElementById('btnPause');
+const layerActive = document.getElementById('layer-controls-active'); // Die glühende Photoshop-Ebene
 
 // Lade den Track und encodiere Leerzeichen für Server wie Vercel
 function loadTrack(index) {
@@ -173,6 +174,7 @@ function playTrack() {
     
     audio.play().then(() => {
         isPlaying = true;
+        if (layerActive) layerActive.classList.remove('hidden-layer'); // Leuchtende Ebene einblenden
     }).catch(err => {
         console.error("Wiedergabe fehlgeschlagen. Grund:", err);
     });
@@ -181,13 +183,14 @@ function playTrack() {
 function pauseTrack() {
     audio.pause();
     isPlaying = false;
-    // Optional: audioContext.suspend() könnte man hier aufrufen, aber audio.pause() unterbricht die Quelle zuverlässig.
+    if (layerActive) layerActive.classList.add('hidden-layer'); // Leuchtende Ebene ausblenden
 }
 
 function stopTrack() {
     audio.pause();
     audio.currentTime = 0;
     isPlaying = false;
+    if (layerActive) layerActive.classList.add('hidden-layer'); // Leuchtende Ebene ausblenden
 }
 
 function nextTrack() {
@@ -229,24 +232,31 @@ if ('serviceWorker' in navigator) {
 
 // --- Uhrzeit und Datum ---
 // --- Uhrzeit und Datum ---
-const dateWidget = document.getElementById('date-widget');
-const timeWidget = document.getElementById('time-widget');
+const clockDay = document.getElementById('clock-day');
+const clockDate = document.getElementById('clock-date');
+const clockTime = document.getElementById('clock-time');
+
+const daysEnglish = ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"];
 
 function updateClock() {
     const now = new Date();
     
-    if (dateWidget) {
+    if (clockDay) {
+        clockDay.innerText = daysEnglish[now.getDay()];
+    }
+    
+    if (clockDate) {
         const day = String(now.getDate()).padStart(2, '0');
         const month = String(now.getMonth() + 1).padStart(2, '0');
         const year = now.getFullYear();
-        dateWidget.innerText = `${day}.${month}.${year}`;
+        clockDate.innerText = `${day}.${month}.${year}`;
     }
     
-    if (timeWidget) {
+    if (clockTime) {
         const hours = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
-        timeWidget.innerText = `${hours}:${minutes}:${seconds}`;
+        clockTime.innerText = `${hours}:${minutes}:${seconds}`;
     }
 }
 
@@ -322,6 +332,15 @@ if (btnArtists) {
 if (btnGenres) {
     btnGenres.addEventListener('click', () => {
         openModal('GENRES', genrePlaylists);
+    });
+}
+
+const btnAbout = document.getElementById('btn-about');
+if (btnAbout) {
+    btnAbout.addEventListener('click', () => {
+        modalTitle.innerText = 'ABOUT';
+        modalList.innerHTML = '<li class="menu-list-item" style="cursor:default; pointer-events:none;">vir2ose-Radio<br>Powered by Waldemar Krucinski<br>The future of artist-driven radio.</li>';
+        modal.classList.remove('hidden');
     });
 }
 
