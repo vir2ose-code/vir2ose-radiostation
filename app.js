@@ -375,3 +375,27 @@ window.addEventListener('click', (e) => {
         closeModal();
     }
 });
+
+// --- Random Repeater ---
+const btnRandom = document.getElementById('btnRandom');
+const layerRandom = document.getElementById('layer-random');
+
+if (btnRandom) {
+    btnRandom.addEventListener('click', () => {
+        // Leuchteffekt triggern
+        if (layerRandom) {
+            layerRandom.classList.add('glow-effect');
+            setTimeout(() => layerRandom.classList.remove('glow-effect'), 400);
+        }
+        
+        // Aktuelle Playlist neu mischen
+        shuffleArray(playlist);
+        currentTrackIndex = 0;
+        
+        // Wenn Musik bereits läuft, sofort den neuen ersten Track spielen
+        if (isPlaying) {
+            loadTrack(currentTrackIndex);
+            playTrack();
+        }
+    });
+}

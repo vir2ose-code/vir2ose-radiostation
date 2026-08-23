@@ -76,6 +76,14 @@ body, html {
 .hitbox-genres { left: 59.5%; top: 48.5%; width: 11%; height: 6%; }
 .hitbox-about { left: 59.5%; top: 56%; width: 11%; height: 6%; }
 
+.hitbox-random { left: 63.5%; top: 75%; width: 3.5%; height: 6%; }
+
+/* Glow Animation für den Random Repeater */
+.glow-effect {
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 1)) brightness(1.5) !important;
+    transition: filter 0.3s ease;
+}
+
 /* Clock Container */
 #clock-container {
     position: absolute;
