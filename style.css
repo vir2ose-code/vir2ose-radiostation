@@ -20,25 +20,11 @@ body, html {
 
 #app-viewport {
     position: relative;
-    /* Strict 16:9 ratio */
+    /* Strict 16:9 ratio for desktop */
     aspect-ratio: 16 / 9;
-    max-width: 100vw;
-    max-height: 100vh;
-    width: 100vw; /* Default width */
-}
-
-/* Ensure width perfectly matches max-height on wider screens to keep 16:9 */
-@media (min-aspect-ratio: 16/9) {
-    #app-viewport {
-        width: 177.77vh; /* 16/9 = 1.7777 */
-        height: 100vh;
-    }
-}
-@media (max-aspect-ratio: 16/9) {
-    #app-viewport {
-        width: 100vw;
-        height: 56.25vw; /* 9/16 = 0.5625 */
-    }
+    width: 100vw;
+    height: auto;
+    /* max-height wurde entfernt, damit das Layout auf breiten Monitoren die volle Breite nutzt */
 }
 
 /* Graphic Layers */
@@ -217,4 +203,33 @@ body, html {
         font-size: 5vmin;
         padding: 3vmin;
     }
+}
+
+/* --- Smartphone Portrait Layout --- */
+@media (max-aspect-ratio: 1/1) {
+    #app-viewport {
+        aspect-ratio: 9 / 16;
+    }
+    
+    /* Uhrzeit anpassen */
+    #clock-container {
+        top: 85%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+    }
+    #clock-day { font-size: 5vw; }
+    #clock-date { font-size: 4vw; }
+    #clock-time { font-size: 4vw; }
+    
+    /* Hitboxen für Smartphone (Geschätzte Werte für das neue 9:16 Layout) */
+    .hitbox-artists { left: 20%; top: 15%; width: 60%; height: 5%; }
+    .hitbox-genres { left: 20%; top: 22%; width: 60%; height: 5%; }
+    .hitbox-about { left: 20%; top: 29%; width: 60%; height: 5%; }
+    
+    /* Steuerungselemente */
+    .hitbox-stop { left: 15%; top: 78%; width: 15%; height: 8%; }
+    .hitbox-pause { left: 35%; top: 78%; width: 15%; height: 8%; }
+    .hitbox-play { left: 55%; top: 76%; width: 20%; height: 12%; }
+    .hitbox-random { left: 80%; top: 78%; width: 15%; height: 8%; }
 }

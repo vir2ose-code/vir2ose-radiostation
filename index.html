@@ -12,26 +12,43 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="vir2oseRadio">
-    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png">
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+    <!-- Favicon für Desktop Browser -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 </head>
 <body>
 
     <div id="app-viewport">
         <!-- 1. Background Layer -->
-        <img class="layer" src="Assets/background.png" alt="Background" draggable="false">
+        <picture>
+            <source media="(max-aspect-ratio: 1/1)" srcset="Assets Smartphone/background_smartphone.png">
+            <img class="layer" src="Assets/background.png" alt="Background" draggable="false">
+        </picture>
         
         <!-- 2. Menu Layer -->
-        <img class="layer" src="Assets/menü_about.png" alt="Menu" draggable="false">
+        <picture>
+            <source media="(max-aspect-ratio: 1/1)" srcset="Assets Smartphone/buttons_smartphone.png">
+            <img class="layer" src="Assets/menü_about.png" alt="Menu" draggable="false">
+        </picture>
         
         <!-- 3. Controls Layer (Inactive) -->
-        <img class="layer" id="layer-controls-inactive" src="Assets/bedienelemente_play_pause_stop_1.png" alt="Controls" draggable="false">
+        <picture>
+            <source media="(max-aspect-ratio: 1/1)" srcset="Assets Smartphone/bedienelemente_smartphone.png">
+            <img class="layer" id="layer-controls-inactive" src="Assets/bedienelemente_play_pause_stop_1.png" alt="Controls" draggable="false">
+        </picture>
         
         <!-- 4. Controls Layer (Active / Glowing) -->
-        <img class="layer hidden-layer" id="layer-controls-active" src="Assets/bedienelemente_play_pause_stop_2.png" alt="Controls Glowing" draggable="false">
+        <picture>
+            <source media="(max-aspect-ratio: 1/1)" srcset="Assets Smartphone/bedienelemente_smartphone.png">
+            <img class="layer hidden-layer" id="layer-controls-active" src="Assets/bedienelemente_play_pause_stop_2.png" alt="Controls Glowing" draggable="false">
+        </picture>
         
         <!-- 5. Random Repeater Layer -->
-        <img class="layer" id="layer-random" src="Assets/random_repeter.png" alt="Random Repeater" draggable="false">
+        <picture>
+            <source media="(max-aspect-ratio: 1/1)" srcset="Assets Smartphone/random_repeter_smartphone.png">
+            <img class="layer" id="layer-random" src="Assets/random_repeter.png" alt="Random Repeater" draggable="false">
+        </picture>
         
         <!-- Clock Container (Positioned exactly over the Photoshop template) -->
         <div id="clock-container">
