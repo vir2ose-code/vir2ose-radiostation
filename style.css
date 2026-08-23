@@ -192,6 +192,48 @@ body, html {
     background: linear-gradient(180deg, #fce2a3 0%, #d4aa58 50%, #f1c775 100%);
     color: #000;
     transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* --- ABOUT Modal Typography --- */
+.about-text {
+    color: #e9ba55;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 2.5vmin;
+    line-height: 1.6;
+    text-align: center;
+    padding: 1vmin 2vmin;
+    cursor: default;
+    background: transparent;
+}
+.about-text h4 {
+    font-family: 'Cinzel', 'Trajan Pro', serif;
+    font-size: 3.5vmin;
+    margin-bottom: 0.5vmin;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(180deg, #f3d489 0%, #c49947 50%, #e2b963 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.about-text h5 {
+    font-size: 2.2vmin;
+    margin-bottom: 3vmin;
+    font-style: italic;
+    opacity: 0.9;
+}
+.about-text p {
+    margin-bottom: 2vmin;
+    color: #ddd; /* Leicht entsättigt für besseren Lesefluss beim Fließtext */
+}
+.about-text p.highlight {
+    color: #f9d976;
+    font-weight: bold;
+}
+.about-text strong {
+    color: #e9ba55;
+}
+
 /* --- Smartphone Portrait Layout --- */
 @media (orientation: portrait), (max-width: 768px) {
     /* --- Dynamische Glow-Status für Bedienelemente (Smartphone) --- */

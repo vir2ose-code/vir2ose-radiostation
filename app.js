@@ -372,7 +372,21 @@ const btnAbout = document.getElementById('btn-about');
 if (btnAbout) {
     btnAbout.addEventListener('click', () => {
         modalTitle.innerText = 'ABOUT';
-        modalList.innerHTML = '<li class="menu-list-item" style="cursor:default; pointer-events:none;">vir2ose-Radio<br>Powered by Waldemar Krucinski<br>The future of artist-driven radio.</li>';
+        modalList.innerHTML = `
+            <div class="about-text">
+                <h4>VIR2OSE RADIO</h4>
+                <h5>Initiated & Founded by Waldemar Krucinski</h5>
+                <p class="highlight">By Creators. For Creators. Your Stage in the Ether.</p>
+                <p>VIR2OSE Radio was born out of a clear vision: To build an independent platform where musicians and creatives can unleash their full potential. We firmly believe that genuine art deserves to be heard—regardless of massive budgets, expensive studio tours, or major-label backing.</p>
+                <p>Here, it is all about the craft, the passion, and boundless creative freedom.</p>
+                <br>
+                <p class="highlight">What lies ahead:</p>
+                <p><strong>A Stage for Independent Virtuosos:</strong> A home for emerging talents, independent soundscapes, and raw artistic expression.</p>
+                <p><strong>Podcasts & Spotlight Sessions:</strong> Expanding our broadcast with artist-driven podcasts, deep-dive interviews, and behind-the-scenes stories where creators share their journey directly with the audience.</p>
+                <br>
+                <p style="font-style: italic; font-size: 1.1em;">Show your craft and get the audience you deserve.</p>
+            </div>
+        `;
         modal.classList.remove('hidden');
     });
 }
