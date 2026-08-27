@@ -97,17 +97,17 @@ const genrePlaylists = {
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/PASSIONATELY - EOV by vir2ose 2025.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/PHANTOM OF THE EDM by vir2ose 2025.mp3"
     ],
-    "AI_Support": [
-        "AUDIO-LIBRARY/GENRES/AI_Support/1-22.08.26.mp3",
-        "AUDIO-LIBRARY/GENRES/AI_Support/1_27.08.26.mpeg",
-        "AUDIO-LIBRARY/GENRES/AI_Support/2-22.08.26.mp3",
-        "AUDIO-LIBRARY/GENRES/AI_Support/2_27.08.26.mpeg",
-        "AUDIO-LIBRARY/GENRES/AI_Support/3-22.08.26.mp3",
-        "AUDIO-LIBRARY/GENRES/AI_Support/3_27.08.26.mpeg",
-        "AUDIO-LIBRARY/GENRES/AI_Support/4-22.08.26.mp3",
-        "AUDIO-LIBRARY/GENRES/AI_Support/4_27.08.26.mpeg",
-        "AUDIO-LIBRARY/GENRES/AI_Support/5_22.08.26.mp3",
-        "AUDIO-LIBRARY/GENRES/AI_Support/5_27.08.26.mpeg"
+    "AI_Supported_Music": [
+        "AUDIO-LIBRARY/GENRES/AI_Supported_Music/1-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/AI_Supported_Music/1_27.08.26.mpeg",
+        "AUDIO-LIBRARY/GENRES/AI_Supported_Music/2-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/AI_Supported_Music/2_27.08.26.mpeg",
+        "AUDIO-LIBRARY/GENRES/AI_Supported_Music/3-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/AI_Supported_Music/3_27.08.26.mpeg",
+        "AUDIO-LIBRARY/GENRES/AI_Supported_Music/4-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/AI_Supported_Music/4_27.08.26.mpeg",
+        "AUDIO-LIBRARY/GENRES/AI_Supported_Music/5_22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/AI_Supported_Music/5_27.08.26.mpeg"
     ],
     "EDM": [
         "AUDIO-LIBRARY/GENRES/EDM/ADVENTURE WORLD by vir2ose 2024.mp3",
