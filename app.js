@@ -1,10 +1,15 @@
 // Master Playlist mit allen Tracks
 const masterPlaylist = [
     "AUDIO-LIBRARY/1-22.08.26.mp3",
+    "AUDIO-LIBRARY/1_27.08.26.mpeg",
     "AUDIO-LIBRARY/2-22.08.26.mp3",
+    "AUDIO-LIBRARY/2_27.08.26.mpeg",
     "AUDIO-LIBRARY/3-22.08.26.mp3",
+    "AUDIO-LIBRARY/3_27.08.26.mpeg",
     "AUDIO-LIBRARY/4-22.08.26.mp3",
+    "AUDIO-LIBRARY/4_27.08.26.mpeg",
     "AUDIO-LIBRARY/5_22.08.26.mp3",
+    "AUDIO-LIBRARY/5_27.08.26.mpeg",
     "AUDIO-LIBRARY/ADVENTURE WORLD by vir2ose 2024.mp3",
     "AUDIO-LIBRARY/BY YOUR SIDE by vir2ose.mp3",
     "AUDIO-LIBRARY/FUEGO ELEMENT by vir2ose 2024.mp3",
@@ -30,10 +35,15 @@ const masterPlaylist = [
 const artistPlaylists = {
     "Camadyn-AI-Independent-Music": [
         "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/1-22.08.26.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/1_27.08.26.mpeg",
         "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/2-22.08.26.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/2_27.08.26.mpeg",
         "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/3-22.08.26.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/3_27.08.26.mpeg",
         "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/4-22.08.26.mp3",
-        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/5_22.08.26.mp3"
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/4_27.08.26.mpeg",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/5_22.08.26.mp3",
+        "AUDIO-LIBRARY/ARTISTS/Camadyn-AI-Independent-Music/5_27.08.26.mpeg"
     ],
     "End Of Vision (BAND)": [
         "AUDIO-LIBRARY/ARTISTS/End Of Vision (BAND)/PASSIONATELY - EOV by vir2ose 2025.mp3",
@@ -72,10 +82,15 @@ const genrePlaylists = {
     ],
     "PSYCHODELIC": [
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/1-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/1_27.08.26.mpeg",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/2-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/2_27.08.26.mpeg",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/3-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/3_27.08.26.mpeg",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/4-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/4_27.08.26.mpeg",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/5_22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/PSYCHODELIC/5_27.08.26.mpeg",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/GHOST OF THE PRODUCTION by vir2ose.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/Let's_go_into_the_future_together.mp3",
         "AUDIO-LIBRARY/GENRES/PSYCHODELIC/NEW WORLD ORDER by vir2ose 2024.mp3",
@@ -84,10 +99,15 @@ const genrePlaylists = {
     ],
     "AI Support": [
         "AUDIO-LIBRARY/GENRES/AI Support/1-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/AI Support/1_27.08.26.mpeg",
         "AUDIO-LIBRARY/GENRES/AI Support/2-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/AI Support/2_27.08.26.mpeg",
         "AUDIO-LIBRARY/GENRES/AI Support/3-22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/AI Support/3_27.08.26.mpeg",
         "AUDIO-LIBRARY/GENRES/AI Support/4-22.08.26.mp3",
-        "AUDIO-LIBRARY/GENRES/AI Support/5_22.08.26.mp3"
+        "AUDIO-LIBRARY/GENRES/AI Support/4_27.08.26.mpeg",
+        "AUDIO-LIBRARY/GENRES/AI Support/5_22.08.26.mp3",
+        "AUDIO-LIBRARY/GENRES/AI Support/5_27.08.26.mpeg"
     ],
     "EDM": [
         "AUDIO-LIBRARY/GENRES/EDM/ADVENTURE WORLD by vir2ose 2024.mp3",
